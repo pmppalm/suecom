@@ -95,24 +95,23 @@
         </div>
     </nav>
     <!--Detail-->
-    <section class="login_box_area p_120" id="login">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="login_box_img">
-                        <img class="img-fluid" src="img/login.jpg" alt="">
-                        <div class="hover">
-                            <h4>New to our website?</h4>
-                            <p>There are advances being made in science and technology everyday, and a good example of
-                                this is the</p>
-                            <a class="main_btn" href="registration.php">Create an Account</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
+    <section class="login_box_area p_120">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="login_box_img">
+						<img class="img-fluid" src="img/login.jpg" alt="">
+						<div class="hover">
+							<h4>New to our website?</h4>
+							<p>There are advances being made in science and technology everyday, and a good example of this is the</p>
+							<a class="main_btn" href="registration.php">Create an Account</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
                     <div class="login_form_inner">
                         <h3>Log in to enter</h3>
-                        <form action="#" method="POST">
+                        <form class="row login_form" action="#" method="POST">
                             <div class="col-md-12 form-group">
                                 <input type="text" class="form-control" id="username" name="username"
                                     placeholder="username">
@@ -133,10 +132,10 @@
                             </div>
                         </form>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
+				</div>
+			</div>
+		</div>
+	</section>
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -204,5 +203,4 @@
     <script src="vendors/counter-up/jquery.counterup.js"></script>
     <script src="js/theme.js"></script>
 </body>
-
 </html>

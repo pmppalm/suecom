@@ -136,7 +136,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12 form-group">
-                                <button type="submit" value="submit" class="btn submit_btn">Register</button>
+                                <button type="submit" value="submit" class="main_btn">Register</button>
                             </div>
                         </form>
                     </div>
