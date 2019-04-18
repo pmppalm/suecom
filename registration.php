@@ -1,6 +1,6 @@
 <?php session_start(); ?>
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -41,25 +41,25 @@
 
 
     <?php 
-    include('connectDB.php');
-    if(isset($_POST['submit'])){
-     $username = $_POST['username'];
-     $password = $conn->real_escape_string($_POST['password']);
-     
-     $sql = "SELECT * FROM `contact` WHERE `username` = '".$username."' AND `password` = '".$password."'" ;
-     $result=$conn->query($sql);
-
-    if($result->num_rows > 0){
-     $row = $result->fetch_assoc();
-     $_SESSION['id'] = $row['id'];
-     $_SESSION['name'] = $row['name'];
-     header('location:index.php');
-    }
-    else{
-        echo "Username & Password is invalid";
-    }
-    }
-    ?>
+		include('connectDB.php');
+		if(isset($_POST['submit'])){
+		 $username = $_POST['username'];
+		 $password = $conn->real_escape_string($_POST['password']);
+		 
+		 $sql = "SELECT * FROM `contact` WHERE `username` = '".$username."' AND `password` = '".$password."'" ;
+		 $result=$conn->query($sql);
+	
+		if($result->num_rows > 0){
+		 $row = $result->fetch_assoc();
+		 $_SESSION['id'] = $row['id'];
+		 $_SESSION['name'] = $row['name'];
+		 header('location:index.php');
+		}
+		else{
+			echo "Username & Password is invalid";
+		}
+		}
+		?>
 </head>
 
 <body id="page-top">
@@ -94,8 +94,8 @@
             </div>
         </div>
     </nav>
-    <!--Detail-->
-    <section class="login_box_area p_120" id="login">
+    <!--================Login Box Area =================-->
+    <section class="login_box_area p_120">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -105,21 +105,29 @@
                             <h4>New to our website?</h4>
                             <p>There are advances being made in science and technology everyday, and a good example of
                                 this is the</p>
-                            <a class="main_btn" href="registration.php">Create an Account</a>
+                            <a class="main_btn" href="login.php">Login</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="login_form_inner">
-                        <h3>Log in to enter</h3>
-                        <form action="#" method="POST">
+                    <div class="login_form_inner reg_form">
+                        <h3>Create an Account</h3>
+                        <form class="row login_form" action="contact_process.php" method="post" id="contactForm"
+                            novalidate="novalidate">
                             <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="username" name="username"
-                                    placeholder="username">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="Email Address">
                             </div>
                             <div class="col-md-12 form-group">
                                 <input type="password" class="form-control" id="password" name="password"
-                                    placeholder="password">
+                                    placeholder="Password">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="password" class="form-control" id="pass" name="pass"
+                                    placeholder="Confirm password">
                             </div>
                             <div class="col-md-12 form-group">
                                 <div class="creat_account">
@@ -128,8 +136,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12 form-group">
-                                <input type="submit" name="submit" value="Login" class="btn float-right login_btn">
-                                <a href="#">Forgot Password?</a>
+                                <button type="submit" value="submit" class="btn submit_btn">Register</button>
                             </div>
                         </form>
                     </div>
@@ -137,6 +144,9 @@
             </div>
         </div>
     </section>
+    <!--================End Login Box Area =================-->
+
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -176,16 +186,8 @@
             </div>
         </div>
     </footer>
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <!-- Contact form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
-    <!-- Custom scripts for this template -->
-    <script src="js/agency.min.js"></script>
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="js/jquery-3.2.1.min.js"></script>
