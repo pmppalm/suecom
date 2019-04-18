@@ -84,7 +84,7 @@
             <div class="intro-text">
                 <div class="intro-lead-in">Welcome To Electronic Commerce!</div>
                 <div class="intro-heading text-uppercase">Business Internet Broadband</div>
-                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#portfolio">See Packages</a>
             </div>
         </div>
     </header>
@@ -100,7 +100,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 col-sm-6 portfolio-item" onclick="window.location='test.php'">
+                <div class="col-md-4 col-sm-6 portfolio-item" onclick="window.location='pack799.php'">
                     <a class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
@@ -114,8 +114,8 @@
                         <h6 class="text-muted"></h6>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
+                <div class="col-md-4 col-sm-6 portfolio-item" onclick="window.location='pack999.php'">
+                    <a class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 <i class="fas fa-plus fa-3x"></i>
@@ -128,8 +128,8 @@
                         <p class="text-muted"></p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
+                <div class="col-md-4 col-sm-6 portfolio-item" onclick="window.location='pack1499.php'">
+                    <a class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 <i class="fas fa-plus fa-3x"></i>
@@ -142,8 +142,8 @@
                         <p class="text-muted"></p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
+                <div class="col-md-4 col-sm-6 portfolio-item" onclick="window.location='pack1999.php'">
+                    <a class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 <i class="fas fa-plus fa-3x"></i>
@@ -156,8 +156,8 @@
                         <p class="text-muted"></p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
+                <div class="col-md-4 col-sm-6 portfolio-item" onclick="window.location='pack2399.php'">
+                    <a class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 <i class="fas fa-plus fa-3x"></i>
@@ -170,8 +170,8 @@
                         <p class="text-muted"></p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+                <div class="col-md-4 col-sm-6 portfolio-item" onclick="window.location='pack2999.php'">
+                    <a class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 <i class="fas fa-plus fa-3x"></i>
