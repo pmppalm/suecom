@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,6 +55,24 @@
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
                     </li>
+                    <?php if(isset($_SESSION['id'])) {?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Welcome to <?php echo $_SESSION['name']?>
+                        </a>
+                        <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item btn" href="#">Action</a>
+                            <a class="dropdown-item btn" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item btn btn-danger" href="logout.php">log out</a>
+                        </div>
+                    </li>
+                    <?php }else {?>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-success btn-md js-scroll-trigger" href="login.php">Log in</a>
+                    </li>
+                    <?php }?>
                 </ul>
             </div>
         </div>
