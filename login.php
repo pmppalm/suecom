@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="img/favicon.png" type="image/png">
-    <title>BIB | Page Login</title>
+    <title>BIB | Login</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="vendors/linericon/style.css">
@@ -46,18 +46,19 @@
      $username = $_POST['username'];
      $password = $conn->real_escape_string($_POST['password']);
      
-     $sql = "SELECT * FROM `contact` WHERE `username` = '".$username."' AND `password` = '".$password."'" ;
+     $sql = "SELECT * FROM contact WHERE username = '".$username."' AND password = '".$password."'" ;
+     $sql2 ="SELECT * FROM contact WHERE username = '".$username."'" ;
+     $sql3 ="SELECT * FROM contact WHERE username = '".$password."'" ;
      $result=$conn->query($sql);
-
+     $result2=$conn->query($sql2);
+     $result3=$conn->query($sql3);
     if($result->num_rows > 0){
      $row = $result->fetch_assoc();
      $_SESSION['id'] = $row['id'];
      $_SESSION['name'] = $row['name'];
      header('location:index.php');
     }
-    else{
-        echo "Username & Password is invalid";
-    }
+   
     }
     ?>
 </head>
@@ -96,20 +97,20 @@
     </nav>
     <!--Detail-->
     <section class="login_box_area p_120">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="login_box_img">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+                <div class="login_box_img">
                         <img class="img-fluid" src="img/login.jpg" alt="">
                         <div class="hover">
-                            <h4>New to our website?</h4>
-                            <p>There are advances being made in science and technology everyday, and a good example of
-                                this is the</p>
+                            <h4>คุณเป็นสมาชิกกับเราแล้วหรือยัง ?</h4>
+                            <p>สำหรับลูกค้าท่านใดที่ยังไม่ได้สมัครสมาชิกเพื่อเข้าใช้งาน BIB
+                                สามารถทำการสมัครสมากชิกได้ที่นี่</p>
                             <a class="main_btn" href="registration.php">Create an Account</a>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6">
+				</div>
+				<div class="col-lg-6">
                     <div class="login_form_inner">
                         <h3>Log in to enter</h3>
                         <form class="row login_form" action="#" method="POST">
@@ -117,14 +118,29 @@
                                 <input type="text" class="form-control" id="username" name="username"
                                     placeholder="username">
                             </div>
+                            <?php
+                                 if(isset($_POST['submit'])){
+                                 if($result2->num_rows <= 0){
+                               echo " <div class='container bg-danger text-white'>Username Incorrect!</div>"; 
+                                        }
+                                            }
+                             ?>
                             <div class="col-md-12 form-group">
                                 <input type="password" class="form-control" id="password" name="password"
                                     placeholder="password">
                             </div>
+                             <?php
+                                 if(isset($_POST['submit'])){
+                                 if($result3->num_rows <= 0){
+                               echo "<div class='container bg-danger text-white'>Password Incorrect!</div>"; 
+                                        }
+                                        
+                                            }
+                             ?>
                             <div class="col-md-12 form-group">
                                 <div class="creat_account">
                                     <input type="checkbox" id="f-option2" name="selector">
-                                    <label for="f-option2">Keep me logged in</label>
+                                    <label for="f-option2 " style="color:grey">Keep me logged in</label>
                                 </div>
                             </div>
                             <div class="col-md-12 form-group">
@@ -133,10 +149,10 @@
                             </div>
                         </form>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
+				</div>
+			</div>
+		</div>
+	</section>
     <!-- Footer -->
     <footer>
         <div class="container">

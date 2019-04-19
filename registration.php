@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="img/favicon.png" type="image/png">
-    <title>BIB | Page Login</title>
+    <title>BIB | Registration</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="vendors/linericon/style.css">
@@ -102,9 +102,8 @@
                     <div class="login_box_img">
                         <img class="img-fluid" src="img/create.jpg" alt="">
                         <div class="hover">
-                            <h4>New to our website?</h4>
-                            <p>There are advances being made in science and technology everyday, and a good example of
-                                this is the</p>
+                            <h4>คุณสมัครสมาชิกสำเร็จแล้วหรือไม่ ?</h4>
+                            <p>หากคุณสมัครสมาชิกสำเร็จแล้ว สามารถเข้าสู่ระบบได้ที่นี่</p>
                             <a class="main_btn" href="login.php">Login</a>
                         </div>
                     </div>
