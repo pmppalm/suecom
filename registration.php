@@ -100,7 +100,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="login_box_img">
-                        <img class="img-fluid" src="img/login.jpg" alt="">
+                        <img class="img-fluid" src="img/create.jpg" alt="">
                         <div class="hover">
                             <h4>New to our website?</h4>
                             <p>There are advances being made in science and technology everyday, and a good example of
@@ -129,6 +129,7 @@
                                 <input type="password" class="form-control" id="pass" name="pass"
                                     placeholder="Confirm password">
                             </div>
+
                             <div class="col-md-12 form-group">
                                 <div class="creat_account">
                                     <input type="checkbox" id="f-option2" name="selector">
@@ -152,7 +153,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Your Website 2019</span>
+                    <span class="copyright">&copy; Business Internet Broadband 2019</span>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">

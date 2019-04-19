@@ -61,16 +61,16 @@
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Welcome to <?php echo $_SESSION['name']?>
                         </a>
-                        <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item btn" href="#">Action</a>
-                            <a class="dropdown-item btn" href="#">Another action</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item btn btn-small" href="#">My Profile</a>
+                            <a class="dropdown-item btn" href="#">Settings</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item btn btn-danger" href="logout.php">log out</a>
+                            <a class="dropdown-item btn btn-danger" href="logout.php">Logout</a>
                         </div>
                     </li>
                     <?php }else {?>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-success btn-md js-scroll-trigger" href="login.php">Log in</a>
+                        <a class="nav-link js-scroll-trigger" href="login.php">Log in</a>
                     </li>
                     <?php }?>
                 </ul>
@@ -489,7 +489,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Your Website 2019</span>
+                    <span class="copyright">&copy; Business Internet Broadband 2019</span>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">

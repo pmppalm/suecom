@@ -96,19 +96,20 @@
     </nav>
     <!--Detail-->
     <section class="login_box_area p_120">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="login_box_img">
-						<img class="img-fluid" src="img/login.jpg" alt="">
-						<div class="hover">
-							<h4>New to our website?</h4>
-							<p>There are advances being made in science and technology everyday, and a good example of this is the</p>
-							<a class="main_btn" href="registration.php">Create an Account</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="login_box_img">
+                        <img class="img-fluid" src="img/login.jpg" alt="">
+                        <div class="hover">
+                            <h4>New to our website?</h4>
+                            <p>There are advances being made in science and technology everyday, and a good example of
+                                this is the</p>
+                            <a class="main_btn" href="registration.php">Create an Account</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
                     <div class="login_form_inner">
                         <h3>Log in to enter</h3>
                         <form class="row login_form" action="#" method="POST">
@@ -132,16 +133,16 @@
                             </div>
                         </form>
                     </div>
-				</div>
-			</div>
-		</div>
-	</section>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Your Website 2019</span>
+                    <span class="copyright">&copy; Business Internet Broadband 2019</span>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">
@@ -203,4 +204,5 @@
     <script src="vendors/counter-up/jquery.counterup.js"></script>
     <script src="js/theme.js"></script>
 </body>
+
 </html>
