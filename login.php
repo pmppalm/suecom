@@ -101,7 +101,7 @@
 			<div class="row">
 				<div class="col-lg-6">
                 <div class="login_box_img">
-                        <img class="img-fluid" src="img/login.jpg" alt="">
+                        <img class="img-fluid" src="img/logintest.jpg" alt="">
                         <div class="hover">
                             <h4>คุณเป็นสมาชิกกับเราแล้วหรือยัง ?</h4>
                             <p>สำหรับลูกค้าท่านใดที่ยังไม่ได้สมัครสมาชิกเพื่อเข้าใช้งาน BIB
