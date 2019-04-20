@@ -91,7 +91,11 @@
                         <h1 class="card-title pricing-card-title">2399 บาท <small class="text-muted">/ เดือน</small>
                         </h1>
                         <ul class="list-unstyled mt-3 mb-4">
+<<<<<<< HEAD
                             <li>ความเร็วดาวน์โหลดสูงสุด 500/300 Mbps</li>
+=======
+                            <li>ความเร็วดาวน์โหลดสูงสุด 500/300 Mbs</li>
+>>>>>>> 4b4f598d71fab4fee4ad8f333423602379f85f9f
                             <hr>
                             <li>ค่าโทร 1000 บาท/เดือน</li>
                             <hr>
