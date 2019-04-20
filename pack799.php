@@ -56,11 +56,11 @@
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="index.php#contact">Contact</a>
                     </li>
-                    <?php if(isset($_SESSION['id'])) {?>
+                    <?php if(isset($_SESSION["email"])) {?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Welcome to <?php echo $_SESSION['name']?>
+                            Welcome <?php echo $_SESSION["firstName"]?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item btn btn-small" href="#">My Profile</a>
@@ -79,7 +79,7 @@
         </div>
     </nav>
 
-    <section id="about">
+    <section id="pack799">
         <div class="container">
             <div class="col-lg-12 text-center">
                 <div class="card mb-4 shadow-sm">
@@ -90,11 +90,7 @@
                         <img class="img-fluid" src="img/pictures/human.jpg" alt=""><br>
                         <h1 class="card-title pricing-card-title">799 บาท <small class="text-muted">/ เดือน</small></h1>
                         <ul class="list-unstyled mt-3 mb-4">
-<<<<<<< HEAD
                             <li>ความเร็วดาวน์โหลดสูงสุด 50/20 Mbps</li>
-=======
-                            <li>ความเร็วดาวน์โหลดสูงสุด 50/20 Mbs</li>
->>>>>>> 4b4f598d71fab4fee4ad8f333423602379f85f9f
                             <hr>
                             <li>ค่าโทร 200 บาท/เดือน</li>
                             <hr>
@@ -115,44 +111,19 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
-                        <span class="copyright">&copy; Business Internet Broadband 2019</span>
+
                     </div>
                     <div class="col-md-4">
                         <ul class="list-inline social-buttons">
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </li>
+                            <span class="copyright">&copy; Business Internet Broadband 2019</span>
                         </ul>
                     </div>
                     <div class="col-md-4">
-                        <ul class="list-inline quicklinks">
-                            <li class="list-inline-item">
-                                <a href="#">Privacy Policy</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">Terms of Use</a>
-                            </li>
-                        </ul>
+
                     </div>
                 </div>
             </div>
         </footer>
-
-
-
-
         <!-- Bootstrap core JavaScript -->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

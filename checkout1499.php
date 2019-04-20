@@ -111,7 +111,25 @@
     </center>
     </form>
   </div>
-  
+  <!-- Footer -->
+  <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-inline social-buttons">
+                            <span class="copyright">&copy; Business Internet Broadband 2019</span>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

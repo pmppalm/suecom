@@ -128,12 +128,11 @@
                                 <input type="password" class="form-control" id="password" name="password"
                                     placeholder="Password">
                             </div>
-
-
                             <div class="col-md-12 form-group">
                                 <div class="creat_account">
                                     <input type="checkbox" id="f-option2" name="selector">
-                                    <label for="f-option2">Keep me logged in</label>
+                                    <label for="f-option2 " style="color:grey">I want to receive exclusive offers from
+                                        BIB.</label>
                                 </div>
                             </div>
                             <div class="col-md-12 form-group">
@@ -149,45 +148,24 @@
     <!--================End Login Box Area =================-->
 
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="copyright">&copy; Business Internet Broadband 2019</span>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li class="list-inline-item">
-                            <a href="#">Privacy Policy</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">Terms of Use</a>
-                        </li>
-                    </ul>
+  <!-- Footer -->
+  <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-inline social-buttons">
+                            <span class="copyright">&copy; Business Internet Broadband 2019</span>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
 
     <!-- Optional JavaScript -->

@@ -24,6 +24,26 @@
 
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
+    <!--php reg-->
+    <?php                     
+    if (isset($_POST["register"])) {
+        $connection = new mysqli("localhost", "root", "", "b2bshop");
+
+		$firstName = $connection->real_escape_string($_POST["firstName"]);  		
+		$lastName = $connection->real_escape_string($_POST["lastName"]);  				
+		$email = $connection->real_escape_string($_POST["email"]);  
+		$password = sha1($connection->real_escape_string($_POST["password"])); 
+			
+		$data = $connection->query("INSERT INTO contact_us (name, email, tel, message) VALUES ('$firstName', '$lastName', '$email', '$password')");
+
+    	if ($data === false)
+        	echo "Connection error!";
+        else
+        echo "<h2>สมัครสมาชิกสำเร็จคุณสามารถเข้าสู่ระบบได้ที่นี่</h2>";
+        header('location:login.php');
+	}	                 
+?>
+    <!--End php -->
 
 </head>
 
@@ -60,7 +80,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Welcome <?php echo $_SESSION["firstName"]?>.
+                            Welcome <?php echo $_SESSION["firstName"]?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item btn btn-small" href="#">My Profile</a>
@@ -86,7 +106,7 @@
                 <div class="intro-lead-in">Welcome To Electronic Commerce!</div>
                 <div class="intro-heading text-uppercase">Business Internet Broadband</div>
                 <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#portfolio">See Packages</a>
-              
+
             </div>
         </div>
     </header>
@@ -292,8 +312,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading text-uppercase">Our Develop Team</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading text-uppercase">Our Develop Team</h2><br>
                 </div>
             </div>
             <div class="row">
@@ -304,13 +323,13 @@
                         <p class="text-muted">07590515</p>
                         <ul class="list-inline social-buttons">
                             <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-twitter"></i>
+                                <a href="https://www.facebook.com/spice.pannathorn.92" target="_blank">
+                                    <i class="fab fa-facebook-f"></i>
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-facebook-f"></i>
+                                <a href="https://www.instagram.com/pmppalm" target="_blank">
+                                    <i class="fab fa-instagram"></i>
                                 </a>
                             </li>
                         </ul>
@@ -323,13 +342,13 @@
                         <p class="text-muted">07590650</p>
                         <ul class="list-inline social-buttons">
                             <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-twitter"></i>
+                                <a href="https://www.facebook.com/tarnardon.chaiamonpan" target="_blank">
+                                    <i class="fab fa-facebook-f"></i>
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-facebook-f"></i>
+                                <a href="https://www.instagram.com/pmppalm" target="_blank">
+                                    <i class="fab fa-instagram"></i>
                                 </a>
                             </li>
                         </ul>
@@ -342,66 +361,57 @@
                         <p class="text-muted">07590653</p>
                         <ul class="list-inline social-buttons">
                             <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-twitter"></i>
+                                <a href="https://www.facebook.com/ferris.wheel2" target="_blank">
+                                    <i class="fab fa-facebook-f"></i>
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-facebook-f"></i>
+                                <a href="https://www.instagram.com/automiku" target="_blank">
+                                    <i class="fab fa-instagram"></i>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="img/team/7.jpg" alt="">
-                            <h4>Paisit Wattanapattaraporn</h4>
-                            <p class="text-muted">07590673</p>
-                            <ul class="list-inline social-buttons">
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="img/team/8.jpg" alt="">
-                            <h4>Wongsathorn Jaisin</h4>
-                            <p class="text-muted">07590682</p>
-                            <ul class="list-inline social-buttons">
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-8 mx-auto text-center">
-                            <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
-                                eaque,
-                                laboriosam
-                                veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-                        </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" src="img/team/7.jpg" alt="">
+                        <h4>Paisit Wattanapattaraporn</h4>
+                        <p class="text-muted">07590673</p>
+                        <ul class="list-inline social-buttons">
+                            <li class="list-inline-item">
+                                <a href="https://www.facebook.com/tate1997" target="_blank">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.instagram.com/pmppalm" target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" src="img/team/8.jpg" alt="">
+                        <h4>Wongsathorn Jaisin</h4>
+                        <p class="text-muted">07590682</p>
+                        <ul class="list-inline social-buttons">
+                            <li class="list-inline-item">
+                                <a href="https://www.facebook.com/pmppalm" target="_blank">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.instagram.com/pmppalm" target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
     </section>
 
     <!-- Clients -->
@@ -438,36 +448,37 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading text-uppercase">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h5 class="section-heading">สามารถติดต่อเราได้ที่นี่</h5><br>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                    <form id="contactForm" action="index.php" method="post" novalidate="novalidate">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input class="form-control" id="name" type="text" placeholder="Your Name *"
-                                        required="required" data-validation-required-message="Please enter your name.">
+                                    <input type="text" class="form-control" id="firstname" name="firstName"
+                                        placeholder="Your Name *" required="required"
+                                        data-validation-required-message="Please enter your name.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" id="email" type="email" placeholder="Your Email *"
-                                        required="required"
+                                    <input type="text" class="form-control" id="lastname" name="lastName"
+                                        placeholder="Your Email *" required="required"
                                         data-validation-required-message="Please enter your email address.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" id="phone" type="tel" placeholder="Your Phone *"
-                                        required="required"
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        placeholder="Your Phone *" required="required"
                                         data-validation-required-message="Please enter your phone number.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <textarea class="form-control" id="message" placeholder="Your Message *"
-                                        required="required"
+                                    <textarea class="form-control" id="password" name="password"
+                                        placeholder="Your Message *" required="required"
                                         data-validation-required-message="Please enter a message."></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
@@ -475,8 +486,8 @@
                             <div class="clearfix"></div>
                             <div class="col-lg-12 text-center">
                                 <div id="success"></div>
-                                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase"
-                                    type="submit">Send
+                                <button type="submit" id="sendMessageButton"
+                                    class="btn btn-primary btn-xl text-uppercase" value="Register" name="register">Send
                                     Message</button>
                             </div>
                         </div>
@@ -491,36 +502,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">&copy; Business Internet Broadband 2019</span>
+
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </li>
+                        <span class="copyright">&copy; Business Internet Broadband 2019</span>
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li class="list-inline-item">
-                            <a href="#">Privacy Policy</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">Terms of Use</a>
-                        </li>
-                    </ul>
+
                 </div>
             </div>
         </div>
