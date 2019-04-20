@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>B2B - InternetShop</title>
+    <title>BIB | Business Internet Broadband</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,6 +24,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -55,22 +56,22 @@
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
                     </li>
-                    <?php if(isset($_SESSION['id'])) {?>
+                    <?php if(isset($_SESSION["email"])) {?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Welcome to <?php echo $_SESSION['name']?>
+                            Welcome <?php echo $_SESSION["firstName"]?>.
                         </a>
-                        <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item btn" href="#">Action</a>
-                            <a class="dropdown-item btn" href="#">Another action</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item btn btn-small" href="#">My Profile</a>
+                            <a class="dropdown-item btn" href="#">Settings</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item btn btn-danger" href="logout.php">log out</a>
+                            <a class="dropdown-item btn btn-danger" href="logout.php">Logout</a>
                         </div>
                     </li>
                     <?php }else {?>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-success btn-md js-scroll-trigger" href="login.php">Log in</a>
+                        <a class="nav-link js-scroll-trigger" href="login.php">Log in</a>
                     </li>
                     <?php }?>
                 </ul>
@@ -85,6 +86,7 @@
                 <div class="intro-lead-in">Welcome To Electronic Commerce!</div>
                 <div class="intro-heading text-uppercase">Business Internet Broadband</div>
                 <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#portfolio">See Packages</a>
+              
             </div>
         </div>
     </header>
@@ -489,7 +491,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Your Website 2019</span>
+                    <span class="copyright">&copy; Business Internet Broadband 2019</span>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">

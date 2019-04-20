@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="img/favicon.png" type="image/png">
-    <title>BIB | Page Login</title>
+    <title>BIB | Registration</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="vendors/linericon/style.css">
@@ -39,27 +39,26 @@
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
 
+    <!--php reg-->
+    <?php                     
+    if (isset($_POST["register"])) {
+        $connection = new mysqli("localhost", "root", "", "b2bshop");
 
-    <?php 
-		include('connectDB.php');
-		if(isset($_POST['submit'])){
-		 $username = $_POST['username'];
-		 $password = $conn->real_escape_string($_POST['password']);
-		 
-		 $sql = "SELECT * FROM `contact` WHERE `username` = '".$username."' AND `password` = '".$password."'" ;
-		 $result=$conn->query($sql);
-	
-		if($result->num_rows > 0){
-		 $row = $result->fetch_assoc();
-		 $_SESSION['id'] = $row['id'];
-		 $_SESSION['name'] = $row['name'];
-		 header('location:index.php');
-		}
-		else{
-			echo "Username & Password is invalid";
-		}
-		}
-		?>
+		$firstName = $connection->real_escape_string($_POST["firstName"]);  		
+		$lastName = $connection->real_escape_string($_POST["lastName"]);  				
+		$email = $connection->real_escape_string($_POST["email"]);  
+		$password = sha1($connection->real_escape_string($_POST["password"])); 
+			
+		$data = $connection->query("INSERT INTO users (firstName, lastName, email, password) VALUES ('$firstName', '$lastName', '$email', '$password')");
+
+    	if ($data === false)
+        	echo "Connection error!";
+        else
+        echo "<h2>สมัครสมาชิกสำเร็จคุณสามารถเข้าสู่ระบบได้ที่นี่</h2>";
+        header('location:login.php');
+	}	                 
+?>
+    <!--End php -->
 </head>
 
 <body id="page-top">
@@ -100,11 +99,10 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="login_box_img">
-                        <img class="img-fluid" src="img/login.jpg" alt="">
+                        <img class="img-fluid" src="img/create.jpg" alt="">
                         <div class="hover">
-                            <h4>New to our website?</h4>
-                            <p>There are advances being made in science and technology everyday, and a good example of
-                                this is the</p>
+                            <h4>คุณสมัครสมาชิกสำเร็จแล้วหรือไม่ ?</h4>
+                            <p>หากคุณสมัครสมาชิกสำเร็จแล้ว สามารถเข้าสู่ระบบได้ที่นี่</p>
                             <a class="main_btn" href="login.php">Login</a>
                         </div>
                     </div>
@@ -112,10 +110,15 @@
                 <div class="col-lg-6">
                     <div class="login_form_inner reg_form">
                         <h3>Create an Account</h3>
-                        <form class="row login_form" action="contact_process.php" method="post" id="contactForm"
+                        <form class="row login_form" action="registration.php" method="post" id="contactForm"
                             novalidate="novalidate">
                             <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                                <input type="text" class="form-control" id="firstname" name="firstName"
+                                    placeholder="First name">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="lastname" name="lastName"
+                                    placeholder="Last name">
                             </div>
                             <div class="col-md-12 form-group">
                                 <input type="email" class="form-control" id="email" name="email"
@@ -125,10 +128,8 @@
                                 <input type="password" class="form-control" id="password" name="password"
                                     placeholder="Password">
                             </div>
-                            <div class="col-md-12 form-group">
-                                <input type="password" class="form-control" id="pass" name="pass"
-                                    placeholder="Confirm password">
-                            </div>
+
+
                             <div class="col-md-12 form-group">
                                 <div class="creat_account">
                                     <input type="checkbox" id="f-option2" name="selector">
@@ -136,7 +137,8 @@
                                 </div>
                             </div>
                             <div class="col-md-12 form-group">
-                                <button type="submit" value="submit" class="main_btn">Register</button>
+                                <button type="submit" value="Register" class="main_btn"
+                                    name="register">Register</button>
                             </div>
                         </form>
                     </div>
@@ -152,7 +154,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Your Website 2019</span>
+                    <span class="copyright">&copy; Business Internet Broadband 2019</span>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">

@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="img/favicon.png" type="image/png">
-    <title>BIB | Page Login</title>
+    <title>BIB | Login</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="vendors/linericon/style.css">
@@ -39,27 +39,43 @@
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
 
+    <!--php-->
+    <?php
+	session_start();
 
-    <?php 
-    include('connectDB.php');
-    if(isset($_POST['submit'])){
-     $username = $_POST['username'];
-     $password = $conn->real_escape_string($_POST['password']);
-     
-     $sql = "SELECT * FROM `contact` WHERE `username` = '".$username."' AND `password` = '".$password."'" ;
-     $result=$conn->query($sql);
+	if (isset($_SESSION["email"]) && isset($_SESSION["loggedIn"])) {
+		header("Location: index.php");
+		exit();
+	}
 
-    if($result->num_rows > 0){
-     $row = $result->fetch_assoc();
-     $_SESSION['id'] = $row['id'];
-     $_SESSION['name'] = $row['name'];
-     header('location:index.php');
-    }
-    else{
-        echo "Username & Password is invalid";
-    }
-    }
-    ?>
+	if (isset($_POST["submit"])) {
+		$connection = new mysqli("localhost", "root", "", "b2bshop");
+		
+        $email = $connection->real_escape_string($_POST["email"]);
+		$password = sha1($connection->real_escape_string($_POST["password"]));
+        $data = $connection->query("SELECT firstName FROM users WHERE email='$email' AND password='$password'");
+        $sql = "SELECT * FROM users WHERE email = '".$email."' AND password = '".$password."'" ;
+        $sql2 ="SELECT * FROM users WHERE email = '".$email."'" ;
+        $sql3 ="SELECT * FROM users WHERE email = '".$password."'" ;
+        $result=$connection->query($sql);
+        $result2=$connection->query($sql2);
+        $result3=$connection->query($sql3);
+
+		if ($data->num_rows > 0) {
+            $row = $data->fetch_assoc();
+			$_SESSION["email"] = $email;
+            $_SESSION["loggedIn"] = 1;
+            $_SESSION["firstName"]=$row['firstName'];
+			header("Location: index.php");
+			exit();
+
+		} else {
+			
+			echo "Please check your inputs!";
+		}
+	}	
+?>
+    <!--End php -->
 </head>
 
 <body id="page-top">
@@ -96,34 +112,50 @@
     </nav>
     <!--Detail-->
     <section class="login_box_area p_120">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="login_box_img">
-						<img class="img-fluid" src="img/login.jpg" alt="">
-						<div class="hover">
-							<h4>New to our website?</h4>
-							<p>There are advances being made in science and technology everyday, and a good example of this is the</p>
-							<a class="main_btn" href="registration.php">Create an Account</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="login_box_img">
+                        <img class="img-fluid" src="img/logintest.jpg" alt="">
+                        <div class="hover">
+                            <h4>คุณเป็นสมาชิกกับเราแล้วหรือยัง ?</h4>
+                            <p>สำหรับลูกค้าท่านใดที่ยังไม่ได้สมัครสมาชิกเพื่อเข้าใช้งาน BIB
+                                สามารถทำการสมัครสมากชิกได้ที่นี่</p>
+                            <a class="main_btn" href="registration.php">Create an Account</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
                     <div class="login_form_inner">
                         <h3>Log in to enter</h3>
-                        <form class="row login_form" action="#" method="POST">
+
+                        <form class="row login_form" action="login.php" method="POST">
                             <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="username" name="username"
-                                    placeholder="username">
+                                <input type="text" class="form-control" id="email" name="email" placeholder="email">
                             </div>
+                            <?php
+                                 if(isset($_POST['submit'])){
+                                 if($result2->num_rows <= 0){
+                               echo " <div class='container bg-danger text-white'>Email Incorrect!</div>"; 
+                                        }
+                                            }
+                             ?>
                             <div class="col-md-12 form-group">
                                 <input type="password" class="form-control" id="password" name="password"
                                     placeholder="password">
                             </div>
+                            <?php
+                                 if(isset($_POST['submit'])){
+                                 if($result3->num_rows <= 0){
+                               echo "<div class='container bg-danger text-white'>Password Incorrect!</div>"; 
+                                        }
+                                        
+                                            }
+                             ?>
                             <div class="col-md-12 form-group">
                                 <div class="creat_account">
                                     <input type="checkbox" id="f-option2" name="selector">
-                                    <label for="f-option2">Keep me logged in</label>
+                                    <label for="f-option2 " style="color:grey">Keep me logged in</label>
                                 </div>
                             </div>
                             <div class="col-md-12 form-group">
@@ -132,16 +164,16 @@
                             </div>
                         </form>
                     </div>
-				</div>
-			</div>
-		</div>
-	</section>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Your Website 2019</span>
+                    <span class="copyright">&copy; Business Internet Broadband 2019</span>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">
@@ -203,4 +235,5 @@
     <script src="vendors/counter-up/jquery.counterup.js"></script>
     <script src="js/theme.js"></script>
 </body>
+
 </html>
