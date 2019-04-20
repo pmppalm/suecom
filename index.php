@@ -24,6 +24,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -55,11 +56,11 @@
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
                     </li>
-                    <?php if(isset($_SESSION['id'])) {?>
+                    <?php if(isset($_SESSION["email"])) {?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Welcome to <?php echo $_SESSION['name']?>
+                            Welcome <?php echo $_SESSION["firstName"]?>.
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item btn btn-small" href="#">My Profile</a>
@@ -85,6 +86,7 @@
                 <div class="intro-lead-in">Welcome To Electronic Commerce!</div>
                 <div class="intro-heading text-uppercase">Business Internet Broadband</div>
                 <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#portfolio">See Packages</a>
+              
             </div>
         </div>
     </header>

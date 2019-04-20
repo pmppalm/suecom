@@ -1,6 +1,6 @@
 <?php                     
     if (isset($_POST["register"])) {
-        $connection = new mysqli("localhost", "root", "", "b2bshop");
+        $connection = new mysqli("localhost", "root", "", "membershipSystem");
 
 		$firstName = $connection->real_escape_string($_POST["firstName"]);  		
 		$lastName = $connection->real_escape_string($_POST["lastName"]);  				

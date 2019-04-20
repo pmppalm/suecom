@@ -1,6 +1,6 @@
 <?php
 	if (isset($_POST["forgotPass"])) {
-		$connection = new mysqli("localhost", "root", "", "b2bshop");
+		$connection = new mysqli("localhost", "root", "", "membershipSystem");
 		
 		$email = $connection->real_escape_string($_POST["email"]);
 		

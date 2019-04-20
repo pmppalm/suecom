@@ -7,7 +7,7 @@
 	}
 
 	if (isset($_POST["logIn"])) {
-		$connection = new mysqli("localhost", "root", "", "b2bshop");
+		$connection = new mysqli("localhost", "root", "", "membershipSystem");
 		
 		$email = $connection->real_escape_string($_POST["email"]);
 		$password = sha1($connection->real_escape_string($_POST["password"]));
@@ -16,6 +16,8 @@
 		if ($data->num_rows > 0) {
 			$_SESSION["email"] = $email;
 			$_SESSION["loggedIn"] = 1;
+
+
 			
 			header("Location: index.php");
 			exit();
@@ -36,3 +38,25 @@
     </form>    
 </body>
 </html>
+
+<?php 
+    include('connectDB.php');
+    if(isset($_POST['submit'])){
+     $username = $_POST['username'];
+     $password = $conn->real_escape_string($_POST['password']);
+     
+     $sql = "SELECT * FROM member WHERE username = '".$username."' AND password = '".$password."'" ;
+     $sql2 ="SELECT * FROM member WHERE username = '".$username."'" ;
+     $sql3 ="SELECT * FROM member WHERE username = '".$password."'" ;
+     $result=$conn->query($sql);
+     $result2=$conn->query($sql2);
+     $result3=$conn->query($sql3);
+    if($result->num_rows > 0){
+     $row = $result->fetch_assoc();
+     $_SESSION['id'] = $row['id'];
+     $_SESSION['name'] = $row['name'];
+     header('location:index.php');
+    }
+   
+    }
+    ?>

@@ -1,10 +1,6 @@
 <?php
 	if (isset($_GET["token"]) && isset($_GET["email"])) {
-<<<<<<< HEAD
-		$connection = new mysqli("localhost", "root", "", "b2bshop");
-=======
 		$connection = new mysqli("localhost", "root", "", "membershipSystem");
->>>>>>> 69255a9ce652ea7360e16e71a600cc581bd53015
 		
 		$email = $connection->real_escape_string($_GET["email"]);
 		$token = $connection->real_escape_string($_GET["token"]);

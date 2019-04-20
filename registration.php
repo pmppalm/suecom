@@ -39,27 +39,26 @@
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
 
+    <!--php reg-->
+    <?php                     
+    if (isset($_POST["register"])) {
+        $connection = new mysqli("localhost", "root", "", "b2bshop");
 
-    <?php 
-		include('connectDB.php');
-		if(isset($_POST['submit'])){
-		 $username = $_POST['username'];
-		 $password = $conn->real_escape_string($_POST['password']);
-		 
-		 $sql = "SELECT * FROM `contact` WHERE `username` = '".$username."' AND `password` = '".$password."'" ;
-		 $result=$conn->query($sql);
-	
-		if($result->num_rows > 0){
-		 $row = $result->fetch_assoc();
-		 $_SESSION['id'] = $row['id'];
-		 $_SESSION['name'] = $row['name'];
-		 header('location:index.php');
-		}
-		else{
-			echo "Username & Password is invalid";
-		}
-		}
-		?>
+		$firstName = $connection->real_escape_string($_POST["firstName"]);  		
+		$lastName = $connection->real_escape_string($_POST["lastName"]);  				
+		$email = $connection->real_escape_string($_POST["email"]);  
+		$password = sha1($connection->real_escape_string($_POST["password"])); 
+			
+		$data = $connection->query("INSERT INTO users (firstName, lastName, email, password) VALUES ('$firstName', '$lastName', '$email', '$password')");
+
+    	if ($data === false)
+        	echo "Connection error!";
+        else
+        echo "<h2>สมัครสมาชิกสำเร็จคุณสามารถเข้าสู่ระบบได้ที่นี่</h2>";
+        header('location:login.php');
+	}	                 
+?>
+    <!--End php -->
 </head>
 
 <body id="page-top">
@@ -111,10 +110,15 @@
                 <div class="col-lg-6">
                     <div class="login_form_inner reg_form">
                         <h3>Create an Account</h3>
-                        <form class="row login_form" action="contact_process.php" method="post" id="contactForm"
+                        <form class="row login_form" action="registration.php" method="post" id="contactForm"
                             novalidate="novalidate">
                             <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                                <input type="text" class="form-control" id="firstname" name="firstName"
+                                    placeholder="First name">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="lastname" name="lastName"
+                                    placeholder="Last name">
                             </div>
                             <div class="col-md-12 form-group">
                                 <input type="email" class="form-control" id="email" name="email"
@@ -124,10 +128,7 @@
                                 <input type="password" class="form-control" id="password" name="password"
                                     placeholder="Password">
                             </div>
-                            <div class="col-md-12 form-group">
-                                <input type="password" class="form-control" id="pass" name="pass"
-                                    placeholder="Confirm password">
-                            </div>
+
 
                             <div class="col-md-12 form-group">
                                 <div class="creat_account">
@@ -136,7 +137,8 @@
                                 </div>
                             </div>
                             <div class="col-md-12 form-group">
-                                <button type="submit" value="submit" class="main_btn">Register</button>
+                                <button type="submit" value="Register" class="main_btn"
+                                    name="register">Register</button>
                             </div>
                         </form>
                     </div>
