@@ -24,6 +24,8 @@
 
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
+
+    <?php $_SESSION["pack"] = 4; ?>
 </head>
 
 <body id="page-top">
@@ -100,7 +102,7 @@
                             <hr>
                             <li>โทรในเครือข่ายฟรี 24 ชั่วโมง</li>
                         </ul>
-                        <button type="button" class="btn btn-lg btn-block btn-outline-primary">ชำระเงิน</button>
+                        <button type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="window.location='payment.php'">สมัครแพ็คเกจ</button>
                     </div>
                 </div>
             </div>

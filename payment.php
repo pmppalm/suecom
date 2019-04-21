@@ -122,8 +122,23 @@
 
   <div class="container">
 
-    <form id="checkout-form" class="checkout-form" action="checkout799.php" method="POST">
-      <div class="form-group">
+  <?php if(isset($_SESSION["pack"])){
+    if($_SESSION["pack"] == 1) {?>
+      <form id="checkout-form" class="checkout-form" action="checkout799.php" method="POST">
+    <?php }else if($_SESSION["pack"] == 2){ ?>
+      <form id="checkout-form" class="checkout-form" action="checkout999.php" method="POST">
+    <?php }else if($_SESSION["pack"] == 3){ ?>
+      <form id="checkout-form" class="checkout-form" action="checkout1499.php" method="POST">
+    <?php }else if($_SESSION["pack"] == 4){ ?>
+      <form id="checkout-form" class="checkout-form" action="checkout1999.php" method="POST"> 
+    <?php }else if($_SESSION["pack"] == 5){ ?>
+      <form id="checkout-form" class="checkout-form" action="checkout2399.php" method="POST"> 
+    <?php }else { ?>
+      <form id="checkout-form" class="checkout-form" action="checkout2999.php" method="POST">
+    <?php } ?>
+  <?php } ?>
+
+    <div class="form-group">
         <label >Card number</label>
         <input type="text" data-name="cardNumber" class="form-control" placeholder="••••••••••••••••" />
       </div>
@@ -177,52 +192,31 @@
         <input type="text" data-name="securityCode" class="form-control" placeholder="CVC" />
       </div>
 
-      <div class="form-group">
-        <button class="btn btn-primary">Checkout</button>
+        <div class="form-group">
+        <button class="btn btn-lg btn-block btn-outline-primary">ชำระเงิน</button>
       </div>
-
+    
     </form>
   </div>
 
 <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Your Website 2019</span>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li class="list-inline-item">
-                            <a href="#">Privacy Policy</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">Terms of Use</a>
-                        </li>
-                    </ul>
+<footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-inline social-buttons">
+                            <span class="copyright">&copy; Business Internet Broadband 2019</span>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
