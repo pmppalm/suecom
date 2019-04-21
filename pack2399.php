@@ -102,7 +102,7 @@
                             <hr>
                             <li>โทรในเครือข่ายฟรี 24 ชั่วโมง</li>
                         </ul>
-                        <button type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="window.location='payment.php'">สมัครแพ็คเกจ</button>
+                        <button type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="window.location='form.php'">สมัครแพ็คเกจ</button>
                     </div>
                 </div>
             </div>

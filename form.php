@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>BIB | Pack999</title>
+    <title>BIB | Form</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,8 +24,6 @@
 
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
-
-    <?php $_SESSION["pack"] = 2; ?>
 </head>
 
 <body id="page-top">
@@ -81,66 +79,80 @@
         </div>
     </nav>
 
-    <section id="pack999">
+    <section id="form">
         <div class="container">
             <div class="col-lg-12 text-center">
                 <div class="card mb-4 shadow-sm">
                     <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">Business Internet Broadband High-Speed Package</h4>
+                        <h4 class="my-0 font-weight-normal">กรอกข้อมูลของคุณเพื่อให้เจ้าหน้าที่ติดต่อกลับ</h4>
                     </div>
                     <div class="card-body">
-                        <img class="img-fluid" src="img/pictures/human2.jpg" alt="">
-                        <h1 class="card-title pricing-card-title">999 บาท <small class="text-muted">/ เดือน</small></h1>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li>ความเร็วดาวน์โหลดสูงสุด 100/50 Mbps</li>
-
-                            <hr>
-                            <li>ค่าโทร 300 บาท/เดือน</li>
-                            <hr>
-                            <li>บริการซ่อมด่วนภายใน 24 ชั่วโมง</li>
-                            <hr>
-                            <li>บริการติดตั้งและเดินสายฟรี</li>
-                            <hr>
-                            <li>โทรในเครือข่ายฟรี 24 ชั่วโมง</li>
-                        </ul>
-                        <button type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="window.location='form.php'">สมัครแพ็คเกจ</button>
+                    <form>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="First name">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Last name">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Company">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="Tel">
+                        </div>
+                    </div>
+                    <br>
+        </form>
+                    <br>                 
+                        <button type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="window.location='payment.php'">ต่อไป</button>
                     </div>
                 </div>
-            </div>
+            </div> 
 
+            
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <span class="copyright">&copy; Business Internet Broadband 2019</span>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div>
         </div>
-        <!-- Footer -->
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
+    </footer>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-                    </div>
-                    <div class="col-md-4">
-                        <ul class="list-inline social-buttons">
-                            <span class="copyright">&copy; Business Internet Broadband 2019</span>
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- Bootstrap core JavaScript -->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Contact form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
 
-        <!-- Plugin JavaScript -->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-        <!-- Contact form JavaScript -->
-        <script src="js/jqBootstrapValidation.js"></script>
-        <script src="js/contact_me.js"></script>
-
-        <!-- Custom scripts for this template -->
-        <script src="js/agency.min.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="js/agency.min.js"></script>
 
 </body>
 
 </html>
+
