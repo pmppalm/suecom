@@ -52,7 +52,7 @@
 		$connection = new mysqli("localhost", "root", "", "b2bshop");
 		
         $email = $connection->real_escape_string($_POST["email"]);
-		$password = sha1($connection->real_escape_string($_POST["password"]));
+        $password = $connection->real_escape_string($_POST["password"]);
         $data = $connection->query("SELECT firstName FROM users WHERE email='$email' AND password='$password'");
         $sql = "SELECT * FROM users WHERE email = '".$email."' AND password = '".$password."'" ;
         $sql2 ="SELECT * FROM users WHERE email = '".$email."'" ;
@@ -60,20 +60,34 @@
         $result=$connection->query($sql);
         $result2=$connection->query($sql2);
         $result3=$connection->query($sql3);
-
+       
 		if ($data->num_rows > 0) {
             $row = $data->fetch_assoc();
 			$_SESSION["email"] = $email;
             $_SESSION["loggedIn"] = 1;
             $_SESSION["firstName"]=$row['firstName'];
-			header("Location: index.php");
-			exit();
-
+            if(!empty($_POST["remember"])){
+                setcookie ("member_login",$email,time()+ (10 * 365 * 24 * 60 * 60));  
+                setcookie ("password",$password,time()+ (10 * 365 * 24 * 60 * 60));
+                $_SESSION["email"] = $email;
+            }
+            else{
+                    if(isset($_COOKIE["member_login"]))   
+                    {  
+                    setcookie ("member_login","");  
+                    }  
+                    if(isset($_COOKIE["password"]))   
+                    {  
+                    setcookie ("password","");  
+                    }  
+                }  
+                    header("location:index.php");
+                    exit();
+            }
 		} else {
 			
 			echo "Please check your inputs!";
-		}
-	}	
+		}	
 ?>
     <!--End php -->
 </head>
@@ -120,7 +134,7 @@
                         <div class="hover">
                             <h4>คุณเป็นสมาชิกกับเราแล้วหรือยัง ?</h4>
                             <p>สำหรับลูกค้าท่านใดที่ยังไม่ได้สมัครสมาชิกเพื่อเข้าใช้งาน BIB
-                                สามารถทำการสมัครสมากชิกได้ที่นี่</p>
+                                สามารถทำการสมัครสมาชิกได้ที่นี่</p>
                             <a class="main_btn" href="registration.php">Create an Account</a>
                         </div>
                     </div>
@@ -131,7 +145,9 @@
 
                         <form class="row login_form" action="login.php" method="POST">
                             <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="email" name="email" placeholder="email">
+                                <input type="text" class="form-control" id="email" name="email"
+                                    value="<?php if(isset($_COOKIE["member_login"])) { echo $_COOKIE["member_login"]; } ?>"
+                                    placeholder="Email">
                             </div>
                             <?php
                                  if(isset($_POST['submit'])){
@@ -142,7 +158,8 @@
                              ?>
                             <div class="col-md-12 form-group">
                                 <input type="password" class="form-control" id="password" name="password"
-                                    placeholder="password">
+                                    value="<?php if(isset($_COOKIE["password"])) { echo $_COOKIE["password"]; } ?>"
+                                    placeholder="Password">
                             </div>
                             <?php
                                  if(isset($_POST['submit'])){
@@ -154,7 +171,8 @@
                              ?>
                             <div class="col-md-12 form-group">
                                 <div class="creat_account">
-                                    <input type="checkbox" id="f-option2" name="selector">
+                                    <input type="checkbox" id="f-option2" name="remember"
+                                        <?php if(isset($_COOKIE["member_login"])) { ?> checked <?php } ?> />
                                     <label for="f-option2 " style="color:grey">Keep me logged in</label>
                                 </div>
                             </div>
@@ -170,22 +188,22 @@
     </section>
     <!-- Footer -->
     <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
 
-                    </div>
-                    <div class="col-md-4">
-                        <ul class="list-inline social-buttons">
-                            <span class="copyright">&copy; Business Internet Broadband 2019</span>
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <span class="copyright">&copy; Business Internet Broadband 2019</span>
+                    </ul>
+                </div>
+                <div class="col-md-4">
 
-                    </div>
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>

@@ -87,72 +87,72 @@
                         <h4 class="my-0 font-weight-normal">กรอกข้อมูลของคุณเพื่อให้เจ้าหน้าที่ติดต่อกลับ</h4>
                     </div>
                     <div class="card-body">
-                    <form>
-                    <div class="row">
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="First name">
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Last name">
-                        </div>
+                        <form>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="First name">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Last name">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Company">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Email">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Tel">
+                                </div>
+                            </div>
+                            <br>
+                        </form>
+                        <br>
+                        <button type="button" class="btn btn-lg btn-block btn-outline-primary"
+                            onclick="window.location='payment.php'">ต่อไป</button>
                     </div>
-                    <br>
-                    <div class="row">
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Company">
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Email">
-                        </div>
-                        <div class="col">
-                        <input type="text" class="form-control" placeholder="Tel">
-                        </div>
-                    </div>
-                    <br>
-        </form>
-                    <br>                 
-                        <button type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="window.location='payment.php'">ต่อไป</button>
-                    </div>
-                </div>
-            </div> 
-
-            
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <span class="copyright">&copy; Business Internet Broadband 2019</span>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-
                 </div>
             </div>
-        </div>
-    </footer>
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Contact form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+            <!-- Footer -->
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
 
-    <!-- Custom scripts for this template -->
-    <script src="js/agency.min.js"></script>
+                        </div>
+                        <div class="col-md-4">
+                            <ul class="list-inline social-buttons">
+                                <span class="copyright">&copy; Business Internet Broadband 2019</span>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- Bootstrap core JavaScript -->
+            <script src="vendor/jquery/jquery.min.js"></script>
+            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+            <!-- Plugin JavaScript -->
+            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+            <!-- Contact form JavaScript -->
+            <script src="js/jqBootstrapValidation.js"></script>
+            <script src="js/contact_me.js"></script>
+
+            <!-- Custom scripts for this template -->
+            <script src="js/agency.min.js"></script>
 
 </body>
 
 </html>
-
