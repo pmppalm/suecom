@@ -102,7 +102,14 @@
                             <hr>
                             <li>โทรในเครือข่ายฟรี 24 ชั่วโมง</li>
                         </ul>
-                        <button type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="window.location='form.php'">สมัครแพ็คเกจ</button>
+                        <?php if(isset($_SESSION["email"])){ ?>
+                        <button type="button" class="btn btn-lg btn-block btn-outline-primary"
+                            onclick="window.location='form.php'">สมัครแพ็คเกจ</button>
+                        <?php }else{ ?>
+                        <button type="button" class="btn btn-lg btn-block btn-outline-primary"
+                            onclick="window.location='login.php'">สมัครแพ็คเกจ</button>
+                        <?php } ?>
+
                     </div>
                 </div>
             </div>
