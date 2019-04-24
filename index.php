@@ -26,21 +26,22 @@
     <link href="css/agency.min.css" rel="stylesheet">
     <!--php reg-->
     <?php                     
-    if (isset($_POST["register"])) {
-        $connection = new mysqli("localhost", "root", "", "b2bshop");
+    if (isset($_POST["sendMessageButton"])) {
+        $connection2 = new mysqli("localhost", "root", "", "b2bshop");
 
-		$firstName = $connection->real_escape_string($_POST["firstName"]);  		
-		$lastName = $connection->real_escape_string($_POST["lastName"]);  				
-		$email = $connection->real_escape_string($_POST["email"]);  
-		$password = sha1($connection->real_escape_string($_POST["password"])); 
+		$name = $connection2->real_escape_string($_POST["name"]);  		
+		$email2 = $connection2->real_escape_string($_POST["email2"]);  				
+		$phone = $connection2->real_escape_string($_POST["phone"]);  
+		$message = $connection2->real_escape_string($_POST["message"]); 
 			
-		$data = $connection->query("INSERT INTO contact_us (name, email, tel, message) VALUES ('$firstName', '$lastName', '$email', '$password')");
+		$data2 = $connection2->query("INSERT INTO contact (name, email2, phone, message) VALUES ('$name', '$email2', '$phone', '$message')");
 
-    	if ($data === false)
-        	echo "Connection error!";
-        else
-        echo "<h2>สมัครสมาชิกสำเร็จคุณสามารถเข้าสู่ระบบได้ที่นี่</h2>";
-        header('location:login.php');
+    	if ($data2 === false){
+            echo "Connection error!";
+        }
+        else{
+        header('location:index.php#contact');
+        }
 	}	                 
 ?>
     <!--End php -->
@@ -211,44 +212,47 @@
     </section>
 
     <!-- Services -->
-  <section id="services">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Services</h2>
-          <h3 class="section-subheading text-muted">บริการทุกระดับประทับใจ.</h3>
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">Services</h2>
+                    <h3 class="section-subheading text-muted">บริการทุกระดับประทับใจ.</h3>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">E-Commerce</h4>
+                    <p class="text-muted">การดำเนินธุรกิจโดยใช้สื่ออิเล็กทรอนิกส์
+                        เพื่อให้บรรลุเป้าหมายทางธุรกิจที่องค์กรได้วางไว้.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Responsive Design</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
+                        architecto
+                        quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Web Security</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
+                        architecto
+                        quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="row text-center">
-        <div class="col-md-4">
-          <span class="fa-stack fa-4x">
-            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-          </span>
-          <h4 class="service-heading">E-Commerce</h4>
-          <p class="text-muted">การดำเนินธุรกิจโดยใช้สื่ออิเล็กทรอนิกส์ เพื่อให้บรรลุเป้าหมายทางธุรกิจที่องค์กรได้วางไว้.</p>
-        </div>
-        <div class="col-md-4">
-          <span class="fa-stack fa-4x">
-            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-          </span>
-          <h4 class="service-heading">Responsive Design</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto
-            quo inventore harum ex magni, dicta impedit.</p>
-        </div>
-        <div class="col-md-4">
-          <span class="fa-stack fa-4x">
-            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
-          </span>
-          <h4 class="service-heading">Web Security</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto
-            quo inventore harum ex magni, dicta impedit.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
     <!-- Team -->
     <section class="bg-light" id="team">
         <div class="container">
@@ -395,31 +399,32 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                    <form id="sentMessage" name="sentMessage" method="post" novalidate="novalidate" onsubmit="myFunction()">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input class="form-control" id="name" type="text" placeholder="Your Name *"
-                                        required="required" data-validation-required-message="Please enter your name.">
+                                    <input class="form-control" id="name" name="name" type="text"
+                                        placeholder="Your Name *" required="required"
+                                        data-validation-required-message="Please enter your name.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" id="email" type="email" placeholder="Your Email *"
-                                        required="required"
+                                    <input class="form-control" id="email2" name="email2" type="email"
+                                        placeholder="Your Email *" required="required"
                                         data-validation-required-message="Please enter your email address.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" id="phone" type="tel" placeholder="Your Phone *"
-                                        required="required"
+                                    <input class="form-control" id="phone" name="phone" type="tel"
+                                        placeholder="Your Phone *" required="required"
                                         data-validation-required-message="Please enter your phone number.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <textarea class="form-control" id="message" placeholder="Your Message *"
-                                        required="required"
+                                    <textarea class="form-control" id="message" name="message"
+                                        placeholder="Your Message *" required="required"
                                         data-validation-required-message="Please enter a message."></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
@@ -427,8 +432,9 @@
                             <div class="clearfix"></div>
                             <div class="col-lg-12 text-center">
                                 <div id="success"></div>
+
                                 <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase"
-                                    type="submit">Send
+                                    type="submit" name="sendMessageButton">Send
                                     Message</button>
                             </div>
                         </div>
@@ -469,6 +475,12 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/agency.min.js"></script>
+
+    <script>
+    function myFunction() {
+        alert("I am an alert box!");
+    }
+    </script>
 
 </body>
 

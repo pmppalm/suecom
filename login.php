@@ -112,7 +112,7 @@
                         <a class="nav-link js-scroll-trigger" href="index.php#portfolio">Packages</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="index.php#about">About</a>
+                        <a class="nav-link js-scroll-trigger" href="index.php#services">Services</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="index.php#team">Team</a>

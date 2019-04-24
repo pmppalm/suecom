@@ -49,12 +49,12 @@
 		$email = $connection->real_escape_string($_POST["email"]);  
 		$password = $connection->real_escape_string($_POST["password"]); 
 			
-		$data = $connection->query("INSERT INTO users (firstName, lastName, email, password) VALUES ('$firstName', '$lastName', '$email', '$password')");
+		$data = $connection->query("INSERT INTO contact (firstName, lastName, email, password) VALUES ('$firstName', '$lastName', '$email', '$password')");
 
     	if ($data === false)
         	echo "Connection error!";
         else
-        echo "<h2>สมัครสมาชิกสำเร็จคุณสามารถเข้าสู่ระบบได้ที่นี่</h2>";
+      echo "<h2>สมัครสมาชิกสำเร็จคุณสามารถเข้าสู่ระบบได้ที่นี่</h2>";
         header('location:login.php');
 	}	                 
 ?>
@@ -74,14 +74,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
-                    <!--<li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
-          </li>-->
+
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="index.php#portfolio">Packages</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="index.php#about">About</a>
+                        <a class="nav-link js-scroll-trigger" href="#services">Services</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="index.php#team">Team</a>
@@ -148,24 +146,24 @@
     <!--================End Login Box Area =================-->
 
 
-  <!-- Footer -->
-  <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
 
-                    </div>
-                    <div class="col-md-4">
-                        <ul class="list-inline social-buttons">
-                            <span class="copyright">&copy; Business Internet Broadband 2019</span>
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <span class="copyright">&copy; Business Internet Broadband 2019</span>
+                    </ul>
+                </div>
+                <div class="col-md-4">
 
-                    </div>
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
 
 
     <!-- Optional JavaScript -->
