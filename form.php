@@ -41,6 +41,7 @@
             header('login.php');
         }
         else{
+            $_SESSION["payment"]=1;
         header('location:payment.php');
         }
 	}	                 

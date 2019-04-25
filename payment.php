@@ -1,4 +1,7 @@
 <?php session_start();?>
+<?php
+	require ("pageCheck.php");
+?>
 <!DOCTYPE html>
 <html>
 
@@ -71,8 +74,8 @@
 </head>
 
 <body id="page-top">
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#1f1d1d">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#1f1d1d">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="index.php">BIBcommerce</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -211,20 +214,20 @@
                                         <div class="form-group">
                                             <input type="radio" class="paymentTypeRadios" id="input_3_paymentType_visa"
                                                 name="q3_myProducts3[paymentType]" checked="" value="visa">
-                                            <img src="img/visa.png" width="60" height="60">
+                                            <img src="img/pictures/visa.png" width="60" height="60">
 
                                             <input type="radio" class="paymentTypeRadios"
                                                 id="input_3_paymentType_master" name="q3_myProducts3[paymentType]"
                                                 value="master">
-                                            <img src="img/master.png" width="60" height="60">
+                                            <img src="img/pictures/master.png" width="60" height="60">
 
                                             <input type="radio" class="paymentTypeRadios" id="input_3_paymentType_union"
                                                 name="q3_myProducts3[paymentType]" value="union">
-                                            <img src="img/union.png" width="60" height="40">
+                                            <img src="img/pictures/union.png" width="60" height="40">
 
                                             <input type="radio" class="paymentTypeRadios" id="input_3_paymentType_jcb"
                                                 name="q3_myProducts3[paymentType]" value="jcb">
-                                            <img src="img/jcb.png" width="50" height="40">
+                                            <img src="img/pictures/jcb.png" width="50" height="40">
                                         </div>
 
                                         <div class="form-group">
