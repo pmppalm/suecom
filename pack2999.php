@@ -29,10 +29,10 @@
 </head>
 
 <body id="page-top">
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#1f1d1d">
+   <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#1f1d1d">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">BIBcommerce</a>
+            <a class="navbar-brand js-scroll-trigger" href="index.php">BIBcommerce</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -45,16 +45,16 @@
             <a class="nav-link js-scroll-trigger" href="#services">Services</a>
           </li>-->
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#portfolio">Packages</a>
+                        <a class="nav-link js-scroll-trigger" href="index.php#portfolio">Packages</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+                        <a class="nav-link js-scroll-trigger" href="index.php#services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+                        <a class="nav-link js-scroll-trigger" href="index.php#team">Team</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                        <a class="nav-link js-scroll-trigger" href="index.php#contact">Contact</a>
                     </li>
                     <?php if(isset($_SESSION["email"])) {?>
                     <li class="nav-item dropdown">
@@ -78,6 +78,7 @@
             </div>
         </div>
     </nav>
+
     <section id="pack2999">
         <div class="container">
             <div class="col-lg-12 text-center">
