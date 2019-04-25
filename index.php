@@ -36,8 +36,14 @@
 			
 		$data2 = $connection2->query("INSERT INTO contact (name, email2, phone, message) VALUES ('$name', '$email2', '$phone', '$message')");
 
-    	if ($data2 === false){
-            echo "Connection error!";
+    	if ($data->num_rows > 0) {
+            $row = $data->fetch_assoc();
+            $_SESSION["email"] = $email;
+            $_SESSION["loggedIn"] = 1;
+            $_SESSION["firstName"]=$row['firstName'];
+            $_SESSION["token"]=$row['token'];
+            $_SESSION["lastName"]=$row['lastName'];
+            $_SESSION["eamil"]=$row['email'];
         }
         else{
         header('location:index.php#contact');
@@ -84,8 +90,11 @@
                             Welcome <?php echo $_SESSION["firstName"]?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item btn btn-small" href="#">My Profile</a>
-                            <a class="dropdown-item btn" href="#">Settings</a>
+                            <a class="dropdown-item btn btn-small" href="profile.php">My Profile</a>
+                            <a class="dropdown-item btn" href="history.php">History</a>
+                            <?php if($_SESSION["token"]!=null) {?>
+                            <a class="dropdown-item btn btn-small" href="payment.php">Payment</a>
+                            <?php }?>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item btn btn-danger" href="logout.php">Logout</a>
                         </div>

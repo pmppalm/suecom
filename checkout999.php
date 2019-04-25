@@ -1,4 +1,7 @@
 <?php session_start();?>
+<?php
+	require ("pageCheck.php");
+?>
 <!DOCTYPE html>
 
 <head>
@@ -35,7 +38,7 @@
 
 <body id="page-top">
     <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#1f1d1d">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#1f1d1d">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="index.php">BIBcommerce</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -47,7 +50,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
                     <!--<li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+            <a class="nav-link js-scroll-trigger" href="index.php#services">Services</a>
           </li>-->
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="index.php#portfolio">Packages</a>
@@ -68,8 +71,11 @@
                             Welcome <?php echo $_SESSION["firstName"]?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item btn btn-small" href="#">My Profile</a>
-                            <a class="dropdown-item btn" href="#">Settings</a>
+                            <a class="dropdown-item btn btn-small" href="profile.php">My Profile</a>
+                            <a class="dropdown-item btn" href="history.php">History</a>
+                            <?php if($_SESSION["token"]!=null) {?>
+                            <a class="dropdown-item btn btn-small" href="payment.php">Payment</a>
+                            <?php }?>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item btn btn-danger" href="logout.php">Logout</a>
                         </div>

@@ -53,19 +53,24 @@
 		
         $email = $connection->real_escape_string($_POST["email"]);
         $password = $connection->real_escape_string($_POST["password"]);
-        $data = $connection->query("SELECT firstName FROM users WHERE email='$email' AND password='$password'");
+        $data = $connection->query("SELECT * FROM users WHERE email='$email' AND password='$password'");
         $sql = "SELECT * FROM users WHERE email = '".$email."' AND password = '".$password."'" ;
         $sql2 ="SELECT * FROM users WHERE email = '".$email."'" ;
         $sql3 ="SELECT * FROM users WHERE email = '".$password."'" ;
+        $sql4 = "SELECT token FROM users WHERE email = '".$email."' AND password = '".$password."'" ;
         $result=$connection->query($sql);
         $result2=$connection->query($sql2);
         $result3=$connection->query($sql3);
+        $result4=$connection->query($sql4);
        
 		if ($data->num_rows > 0) {
             $row = $data->fetch_assoc();
-			$_SESSION["email"] = $email;
+            $_SESSION["email"] = $email;
             $_SESSION["loggedIn"] = 1;
             $_SESSION["firstName"]=$row['firstName'];
+            $_SESSION["token"]=$row['token'];
+            $_SESSION["lastName"]=$row['lastName'];
+            $_SESSION["email"]=$row['email'];
          
             if(!empty($_POST["remember"])){
                 setcookie ("member_login",$email,time()+ (10 * 365 * 24 * 60 * 60));  

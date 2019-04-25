@@ -54,7 +54,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#1f1d1d">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">BIBcommerce</a>
+            <a class="navbar-brand js-scroll-trigger" href="index.php">BIBcommerce</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -67,16 +67,16 @@
             <a class="nav-link js-scroll-trigger" href="#services">Services</a>
           </li>-->
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#portfolio">Packages</a>
+                        <a class="nav-link js-scroll-trigger" href="index.php#portfolio">Packages</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+                        <a class="nav-link js-scroll-trigger" href="index.php#services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+                        <a class="nav-link js-scroll-trigger" href="index.php#team">Team</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                        <a class="nav-link js-scroll-trigger" href="index.php#contact">Contact</a>
                     </li>
                     <?php if(isset($_SESSION["email"])) {?>
                     <li class="nav-item dropdown">
@@ -85,8 +85,8 @@
                             Welcome <?php echo $_SESSION["firstName"]?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item btn btn-small" href="#">My Profile</a>
-                            <a class="dropdown-item btn" href="#">Settings</a>
+                            <a class="dropdown-item btn btn-small" href="profile.php">My Profile</a>
+                            <a class="dropdown-item btn" href="Historys.php">Historys</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item btn btn-danger" href="logout.php">Logout</a>
                         </div>
@@ -96,6 +96,7 @@
                         <a class="nav-link js-scroll-trigger" href="login.php">Log in</a>
                     </li>
                     <?php }?>
+                    
                 </ul>
             </div>
         </div>

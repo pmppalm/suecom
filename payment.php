@@ -51,26 +51,27 @@
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
 
-    <?php 
-    include('connectDB.php');
-    if(isset($_POST['submit'])){
-     $username = $_POST['username'];
-     $password = $conn->real_escape_string($_POST['password']);
-     
-     $sql = "SELECT * FROM `contact` WHERE `username` = '".$username."' AND `password` = '".$password."'" ;
-     $result=$conn->query($sql);
+    <!--php reg-->
 
-    if($result->num_rows > 0){
-     $row = $result->fetch_assoc();
-     $_SESSION['id'] = $row['id'];
-     $_SESSION['name'] = $row['name'];
-     header('location:index.php');
-    }
-    else{
-        echo "Username & Password is invalid";
-    }
-    }
-    ?>
+
+    <?php                     
+    if (isset($_POST["submitPayment"])) {
+        $connection3 = new mysqli("localhost", "root", "", "b2bshop");
+		$card = $connection3->real_escape_string($_POST["cardNum"]);  		
+        $candName = $connection3->real_escape_string($_POST["cardName"]);				
+        $emails=$_SESSION['email'];
+        $tokens=$_SESSION['token'];
+        $datePayment = date("Y-m-d");
+		$data3 = $connection3->query("UPDATE users SET card='$card',nameCard='$candName',date='$datePayment' WHERE users.email='$emails'");
+        if ($data3 == false) {
+           echo "Cannot is DATABASE";
+        }
+        else{
+        header('location:checkout'.$tokens.'.php');
+        }
+	}	                 
+?>
+    <!--End php -->
 </head>
 
 <body id="page-top">
@@ -125,119 +126,102 @@
     </nav>
     <!--paymentDetails-->
     <div class="container">
-        <?php if(isset($_SESSION["pack"])){
-    if($_SESSION["pack"] == 1) {?>
-        <form id="checkout-form" class="checkout-form" action="checkout799.php" method="POST">
-            <?php }else if($_SESSION["pack"] == 2){ ?>
-            <form id="checkout-form" class="checkout-form" action="checkout999.php" method="POST">
-                <?php }else if($_SESSION["pack"] == 3){ ?>
-                <form id="checkout-form" class="checkout-form" action="checkout1499.php" method="POST">
-                    <?php }else if($_SESSION["pack"] == 4){ ?>
-                    <form id="checkout-form" class="checkout-form" action="checkout1999.php" method="POST">
-                        <?php }else if($_SESSION["pack"] == 5){ ?>
-                        <form id="checkout-form" class="checkout-form" action="checkout2399.php" method="POST">
-                            <?php }else { ?>
-                            <form id="checkout-form" class="checkout-form" action="checkout2999.php" method="POST">
-                                <?php } ?>
-                                <?php } ?>
+        <form id="checkout-form" class="checkout-form" method="POST">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
 
-                                <div class="card mb-4 shadow-sm">
-                                    <div class="card-header">
+                    <div class="form-group">
+                        <center>
+                            <h2>ชำระค่าบริการ</h2>
+                        </center>
+                    </div>
 
-                                        <div class="form-group">
-                                            <center>
-                                                <h2>ชำระค่าบริการ</h2>
-                                            </center>
-                                        </div>
+                </div>
+                <div class="card-body">
 
-                                    </div>
-                                    <div class="card-body">
+                    <div class="form-group">
+                        <label>หมายเลขบัตร</label>
+                        <input type="text" data-name="cardNumber" name="cardNum" class="form-control"
+                            placeholder="••••••••••••••••" />
+                    </div>
 
-                                        <div class="form-group">
-                                            <label>หมายเลขบัตร</label>
-                                            <input type="text" data-name="cardNumber" class="form-control"
-                                                placeholder="••••••••••••••••" />
-                                        </div>
+                    <div class="form-group">
+                        <label>ชื่อที่แสดงบนบัตร</label>
+                        <input type="text" data-name="nameOnCard" name="cardName" class="form-control"
+                            placeholder="ชื่อเต็ม" />
+                    </div>
 
-                                        <div class="form-group">
-                                            <label>ชื่อที่แสดงบนบัตร</label>
-                                            <input type="text" data-name="nameOnCard" class="form-control"
-                                                placeholder="ชื่อเต็ม" />
-                                        </div>
+                    <div class="form-group">
+                        <label>วันหมดอายุ</label>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <select class="form-control" data-name="expiryMonth">
+                                    <option value="">เดือน</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-control" data-name="expiryYear">
+                                    <option value="">ปี</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2025">2025</option>
+                                    <option value="2026">2026</option>
+                                    <option value="2027">2027</option>
+                                    <option value="2028">2028</option>
+                                    <option value="2029">2029</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
 
-                                        <div class="form-group">
-                                            <label>วันหมดอายุ</label>
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <select class="form-control" data-name="expiryMonth">
-                                                        <option value="">เดือน</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                        <option value="11">11</option>
-                                                        <option value="12">12</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <select class="form-control" data-name="expiryYear">
-                                                        <option value="">ปี</option>
-                                                        <option value="2019">2019</option>
-                                                        <option value="2020">2020</option>
-                                                        <option value="2021">2021</option>
-                                                        <option value="2022">2022</option>
-                                                        <option value="2023">2023</option>
-                                                        <option value="2024">2024</option>
-                                                        <option value="2025">2025</option>
-                                                        <option value="2026">2026</option>
-                                                        <option value="2027">2027</option>
-                                                        <option value="2028">2028</option>
-                                                        <option value="2029">2029</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>รหัสการรักษาความปลอดภัย</label>
-                                            <input type="text" data-name="securityCode" class="form-control"
-                                                placeholder="รหัสหลังบัตร" />
-                                        </div>
+                    <div class="form-group">
+                        <label>รหัสการรักษาความปลอดภัย</label>
+                        <input type="text" data-name="securityCode" class="form-control" placeholder="รหัสหลังบัตร" />
+                    </div>
 
 
-                                        <div class="form-group">
-                                            <input type="radio" class="paymentTypeRadios" id="input_3_paymentType_visa"
-                                                name="q3_myProducts3[paymentType]" checked="" value="visa">
-                                            <img src="img/pictures/visa.png" width="60" height="60">
+                    <div class="form-group">
+                        <input type="radio" class="paymentTypeRadios" id="input_3_paymentType_visa"
+                            name="q3_myProducts3[paymentType]" checked="" value="visa">
+                        <img src="img/pictures/visa.png" width="60" height="60">
 
-                                            <input type="radio" class="paymentTypeRadios"
-                                                id="input_3_paymentType_master" name="q3_myProducts3[paymentType]"
-                                                value="master">
-                                            <img src="img/pictures/master.png" width="60" height="60">
+                        <input type="radio" class="paymentTypeRadios" id="input_3_paymentType_master"
+                            name="q3_myProducts3[paymentType]" value="master">
+                        <img src="img/pictures/master.png" width="60" height="60">
 
-                                            <input type="radio" class="paymentTypeRadios" id="input_3_paymentType_union"
-                                                name="q3_myProducts3[paymentType]" value="union">
-                                            <img src="img/pictures/union.png" width="60" height="40">
+                        <input type="radio" class="paymentTypeRadios" id="input_3_paymentType_union"
+                            name="q3_myProducts3[paymentType]" value="union">
+                        <img src="img/pictures/union.png" width="60" height="40">
 
-                                            <input type="radio" class="paymentTypeRadios" id="input_3_paymentType_jcb"
-                                                name="q3_myProducts3[paymentType]" value="jcb">
-                                            <img src="img/pictures/jcb.png" width="50" height="40">
-                                        </div>
+                        <input type="radio" class="paymentTypeRadios" id="input_3_paymentType_jcb"
+                            name="q3_myProducts3[paymentType]" value="jcb">
+                        <img src="img/pictures/jcb.png" width="50" height="40">
+                    </div>
 
-                                        <div class="form-group">
-                                            <button class="btn btn-lg btn-block btn-outline-primary">ชำระเงิน</button>
-                                        </div>
+                    <div class="form-group">
+                        <button name="submitPayment" class="btn btn-lg btn-block btn-outline-primary">ชำระเงิน</button>
+                    </div>
 
-                                    </div>
-                                </div>
+                </div>
+            </div>
 
-                            </form>
+        </form>
     </div>
     <!-- Footer -->
     <footer>
