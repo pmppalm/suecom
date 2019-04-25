@@ -24,6 +24,28 @@
 
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
+    <!--php reg-->
+    <?php                     
+    if (isset($_POST["sendPackhages"])) {
+        $connection3 = new mysqli("localhost", "root", "", "b2bshop");
+
+		$firstName2 = $connection3->real_escape_string($_POST["firstName2"]);  		
+		$lastName2 = $connection3->real_escape_string($_POST["lastName2"]);  				
+		$company = $connection3->real_escape_string($_POST["company"]);  
+        $email3 = $connection3->real_escape_string($_POST["email3"]);
+        $phone2 = $connection3->real_escape_string($_POST["phone2"]);  
+			
+		$data3 = $connection3->query("INSERT INTO packages (firstName, lastName, company, email, phone) VALUES ('$firstName2', '$lastName2', '$company', '$email3','$phone2')");
+
+    	if ($data3 === false){
+            header('login.php');
+        }
+        else{
+        header('location:payment.php');
+        }
+	}	                 
+?>
+    <!--End php -->
 </head>
 
 <body id="page-top">
@@ -86,35 +108,34 @@
                         <h4 class="my-0 font-weight-normal">กรอกข้อมูลของคุณเพื่อให้เจ้าหน้าที่ติดต่อกลับ</h4>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="form.php" method="post">
                             <div class="row">
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="First name">
+                                    <input type="text" name="firstName2" class="form-control" placeholder="First name">
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Last name">
+                                    <input type="text" name="lastName2" class="form-control" placeholder="Last name">
                                 </div>
                             </div>
                             <br>
                             <div class="row">
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Company">
+                                    <input type="text" name="company" class="form-control" placeholder="Company">
                                 </div>
                             </div>
                             <br>
                             <div class="row">
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Email">
+                                    <input type="text" name="email3" class="form-control" placeholder="Email">
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Tel">
+                                    <input type="text" name="phone2" class="form-control" placeholder="Tel">
                                 </div>
                             </div>
-                            <br>
+                            <br>    
+                            <button id="sendPackhages" class="btn btn-lg btn-block btn-outline-primary" type="submit"
+                                name="sendPackhages">SendMessage</button>
                         </form>
-                        <br>
-                        <button type="button" class="btn btn-lg btn-block btn-outline-primary"
-                            onclick="window.location='payment.php'">ต่อไป</button>
                     </div>
                 </div>
             </div>

@@ -49,7 +49,7 @@
 		$email = $connection->real_escape_string($_POST["email"]);  
 		$password = $connection->real_escape_string($_POST["password"]); 
 			
-		$data = $connection->query("INSERT INTO contact (firstName, lastName, email, password) VALUES ('$firstName', '$lastName', '$email', '$password')");
+		$data = $connection->query("INSERT INTO users (firstName, lastName, email, password) VALUES ('$firstName', '$lastName', '$email', '$password')");
 
     	if ($data === false)
         	echo "Connection error!";
@@ -62,8 +62,8 @@
 </head>
 
 <body id="page-top">
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: black;">
+   <!-- Navigation -->
+   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#1f1d1d">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="index.php">BIBcommerce</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -74,12 +74,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
-
+                    <!--<li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+          </li>-->
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="index.php#portfolio">Packages</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+                        <a class="nav-link js-scroll-trigger" href="index.php#services">Services</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="index.php#team">Team</a>

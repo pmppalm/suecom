@@ -29,8 +29,8 @@
 </head>
 
 <body id="page-top">
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#1f1d1d">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#1f1d1d">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="index.php">BIBcommerce</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -103,13 +103,19 @@
                             <li>โทรในเครือข่ายฟรี 24 ชั่วโมง</li>
                         </ul>
                         <?php if(isset($_SESSION["email"])){ ?>
-                        <button type="button" class="btn btn-lg btn-block btn-outline-primary"
+                        <button type="button" name="reg" class="btn btn-lg btn-block btn-outline-primary"
                             onclick="window.location='form.php'">สมัครแพ็คเกจ</button>
                         <?php }else{ ?>
-                        <button type="button" class="btn btn-lg btn-block btn-outline-primary"
+                            <?php $_SESSION["packet799"] = 0; 
+                            $_SESSION["packet999"] = 1; 
+                            $_SESSION["packet1499"] = 0; 
+                            $_SESSION["packet1999"] = 0; 
+                            $_SESSION["packet2399"] = 0;  
+                            $_SESSION["packet2999"] = 0;  
+                             ?>
+                        <button type="button" name="reg2" class="btn btn-lg btn-block btn-outline-primary"
                             onclick="window.location='login.php'">สมัครแพ็คเกจ</button>
                         <?php } ?>
-                        <button type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="window.location='form.php'">สมัครแพ็คเกจ</button>
                     </div>
                 </div>
             </div>

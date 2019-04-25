@@ -66,23 +66,49 @@
 			$_SESSION["email"] = $email;
             $_SESSION["loggedIn"] = 1;
             $_SESSION["firstName"]=$row['firstName'];
+         
             if(!empty($_POST["remember"])){
                 setcookie ("member_login",$email,time()+ (10 * 365 * 24 * 60 * 60));  
                 setcookie ("password",$password,time()+ (10 * 365 * 24 * 60 * 60));
                 $_SESSION["email"] = $email;
             }
             else{
-                    if(isset($_COOKIE["member_login"]))   
-                    {  
-                    setcookie ("member_login","");  
-                    }  
-                    if(isset($_COOKIE["password"]))   
-                    {  
-                    setcookie ("password","");  
-                    }  
+                if(isset($_COOKIE["member_login"]))   
+                {  
+                setcookie ("member_login","");  
                 }  
-                    header("location:index.php");
+                if(isset($_COOKIE["password"]))   
+                {  
+                setcookie ("password","");  
+                }  
+            }  
+            if($_SESSION["packet799"]==1){
+                header("location:pack799.php");
+                exit();
+            }
+            else if($_SESSION["packet999"]==1){
+                header("location:pack999.php");
+                exit();
+            }
+            else if($_SESSION["packet1499"]==1){
+                header("location:pack1499.php");
+                exit();
+            }
+            else if($_SESSION["packet1999"]==1){
+                header("location:pack1999.php");
+                exit();
+            }
+            else if($_SESSION["packet2399"]==1){
+                header("location:pack2399.php");
+                exit();
+            }
+            else if($_SESSION["packet2999"]==1){
+                header("location:pack2999.php");
+                exit();
+            }
+            else {header("location:index.php");
                     exit();
+            }        
             }
 		} else {
 			
@@ -94,7 +120,7 @@
 
 <body id="page-top">
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: black;">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#1f1d1d">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="index.php">BIBcommerce</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -132,6 +158,7 @@
                     <div class="login_box_img">
                         <img class="img-fluid" src="img/logintest.jpg" alt="">
                         <div class="hover">
+                    
                             <h4>คุณเป็นสมาชิกกับเราแล้วหรือยัง ?</h4>
                             <p>สำหรับลูกค้าท่านใดที่ยังไม่ได้สมัครสมาชิกเพื่อเข้าใช้งาน BIB
                                 สามารถทำการสมัครสมาชิกได้ที่นี่</p>

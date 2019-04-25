@@ -399,7 +399,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <form id="sentMessage" name="sentMessage" method="post" novalidate="novalidate" onsubmit="myFunction()">
+                    <form id="sentMessage" name="sentMessage" method="post" novalidate="novalidate">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
