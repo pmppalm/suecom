@@ -183,7 +183,7 @@
                             </div>
                             <?php
                                  if(isset($_POST['submit'])){
-                                 if($result2->num_rows <= 0){
+                                 if($result2_login->num_rows <= 0){
                                echo " <div class='container bg-danger text-white'>Email Incorrect!</div>"; 
                                         }
                                             }
@@ -195,7 +195,7 @@
                             </div>
                             <?php
                                  if(isset($_POST['submit'])){
-                                 if($result3->num_rows <= 0){
+                                 if($result3_login->num_rows <= 0){
                                echo "<div class='container bg-danger text-white'>Password Incorrect!</div>"; 
                                         }
                                         
