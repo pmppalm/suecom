@@ -1,15 +1,33 @@
 <?php session_start();?>
+<?php
+	require ("pageCheck.php");
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <script src="https://cdn.omise.co/omise.js.gz"></script>
 
-    <title>BIB | Pack1999</title>
+    <title>BIB | Thank You</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="vendors/linericon/style.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
+    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+    <link rel="stylesheet" href="vendors/animate-css/animate.css">
+    <link rel="stylesheet" href="vendors/jquery-ui/jquery-ui.css">
+
+    <!-- main css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,15 +42,13 @@
 
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
-
-    <?php $_SESSION["pack"] = 4; ?>
 </head>
 
 <body id="page-top">
-   <!-- Navigation -->
-   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#1f1d1d">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#1f1d1d">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">BIBcommerce</a>
+            <a class="navbar-brand js-scroll-trigger" href="index.php">BIBcommerce</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -41,17 +57,20 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
+                    <!--<li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+          </li>-->
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#portfolio">Packages</a>
+                        <a class="nav-link js-scroll-trigger" href="index.php#portfolio">Packages</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+                        <a class="nav-link js-scroll-trigger" href="index.php#services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+                        <a class="nav-link js-scroll-trigger" href="index.php#team">Team</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                        <a class="nav-link js-scroll-trigger" href="index.php#contact">Contact</a>
                     </li>
                     <?php if(isset($_SESSION["email"])) {?>
                     <li class="nav-item dropdown">
@@ -60,11 +79,8 @@
                             Welcome <?php echo $_SESSION["firstName"]?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item btn btn-small" href="profile.php">My Profile</a>
-                            <a class="dropdown-item btn" href="history.php">History</a>
-                            <?php if($_SESSION["token"]!=null) {?>
-                            <a class="dropdown-item btn btn-small" href="payment.php">Payment</a>
-                            <?php }?>
+                            <a class="dropdown-item btn btn-small" href="#">My Profile</a>
+                            <a class="dropdown-item btn" href="#">Settings</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item btn btn-danger" href="logout.php">Logout</a>
                         </div>
@@ -78,48 +94,33 @@
             </div>
         </div>
     </nav>
+    <!--
+    <div class="contanier">
+        <div class="col-lg-12 text-center">
+            <div class="card mb-4 shadow-sm">
+                <center>
+                    <h1 class="intro-heading text-uppercase text-muted">T H A N K Y O U</h1>
+                    <h1 class="intro-lead-in text-muted">ขอบคุณที่สนใจ ทางเราจะติดต่อท่านกลับไป</h1>
+                </center>
+            </div>
+        </div>
+    </div>-->
 
-    <section id="pack1999">
+    <section id="thankyou">
         <div class="container">
+            <center>
+                <img src="img/pictures/fav.png" width="200" height="200">
+            </center>
             <div class="col-lg-12 text-center">
-                <div class="card mb-4 shadow-sm">
-                    <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">Business Internet Broadband High-Speed Package</h4>
-                    </div>
-                    <div class="card-body">
-                        <img class="img-fluid" src="img/pictures/human4.jpg" alt="">
-                        <h1 class="card-title pricing-card-title">1999 บาท <small class="text-muted">/ เดือน</small>
-                        </h1>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li>ความเร็วดาวน์โหลดสูงสุด 300/200 Mbps</li>
-
-                            <hr>
-                            <li>ค่าโทร 500 บาท/เดือน</li>
-                            <hr>
-                            <li>บริการซ่อมด่วนภายใน 24 ชั่วโมง</li>
-                            <hr>
-                            <li>บริการติดตั้งและเดินสายฟรี</li>
-                            <hr>
-                            <li>โทรในเครือข่ายฟรี 24 ชั่วโมง</li>
-                        </ul>
-                        <?php if(isset($_SESSION["email"])){ ?>
-                        <button type="button" name="reg" class="btn btn-lg btn-block btn-outline-primary"
-                            onclick="window.location='form.php'">สมัครแพ็คเกจ</button>
-                        <?php }else{ ?>
-                            <?php $_SESSION["packet799"] = 0; 
-                            $_SESSION["packet999"] = 0; 
-                            $_SESSION["packet1499"] = 0; 
-                            $_SESSION["packet1999"] = 1; 
-                            $_SESSION["packet2399"] = 0;  
-                            $_SESSION["packet2999"] = 0;  
-                             ?>
-                        <button type="button" name="reg2" class="btn btn-lg btn-block btn-outline-primary"
-                            onclick="window.location='login.php'">สมัครแพ็คเกจ</button>
-                        <?php } ?>
+                <div class="">
+                    <div class=""><br><br>
+                        <h1 class="intro-heading text-uppercase text-muted">T H A N K Y O U</h1>
+                        <h2 class="intro-lead-in text-muted">ขอบคุณสำหรับการสมัคร ทางเราจะติดต่อท่านกลับไป</h2><br><br>
                     </div>
                 </div>
+                <button type="button" class="btn btn-lg btn-block btn-outline-primary"
+                    onclick="window.location='index.php'">กลับสู่หน้าหลัก</button>
             </div>
-
         </div>
         <!-- Footer -->
         <footer>
@@ -153,7 +154,6 @@
 
         <!-- Custom scripts for this template -->
         <script src="js/agency.min.js"></script>
-
 </body>
 
 </html>

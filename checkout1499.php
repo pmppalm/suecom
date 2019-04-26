@@ -38,9 +38,9 @@
 
 <body id="page-top">
      <!-- Navigation -->
-     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#1f1d1d">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#1f1d1d">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="index.php">BIBcommerce</a>
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">BIBcommerce</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -49,20 +49,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
-                    <!--<li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="index.php#services">Services</a>
-          </li>-->
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="index.php#portfolio">Packages</a>
+                        <a class="nav-link js-scroll-trigger" href="#portfolio">Packages</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="index.php#services">Services</a>
+                        <a class="nav-link js-scroll-trigger" href="#services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="index.php#team">Team</a>
+                        <a class="nav-link js-scroll-trigger" href="#team">Team</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="index.php#contact">Contact</a>
+                        <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
                     </li>
                     <?php if(isset($_SESSION["email"])) {?>
                     <li class="nav-item dropdown">

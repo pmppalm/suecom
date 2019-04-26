@@ -15,14 +15,6 @@
 
     <title>BIB | Payment</title>
 
-    <style>
-    .checkout-form {
-        max-width: 500px;
-        margin-left: 300px;
-        margin-top: 175px;
-    }
-    </style>
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="vendors/linericon/style.css">
@@ -52,22 +44,22 @@
     <link href="css/agency.min.css" rel="stylesheet">
 
     <!--php reg-->
-
-
     <?php                     
     if (isset($_POST["submitPayment"])) {
-        $connection3 = new mysqli("localhost", "root", "", "b2bshop");
-		$card = $connection3->real_escape_string($_POST["cardNum"]);  		
-        $candName = $connection3->real_escape_string($_POST["cardName"]);				
-        $emails=$_SESSION['email'];
-        $tokens=$_SESSION['token'];
+        $connection_payment = new mysqli("localhost", "root", "", "b2bshop");
+		$card_payment = $connection_payment->real_escape_string($_POST["cardNum"]);  		
+        $candName_payment = $connection_payment->real_escape_string($_POST["cardName"]);				
+        $email_payment=$_SESSION['email'];
+        $token_payment=$_SESSION['token'];
         $datePayment = date("Y-m-d");
-		$data3 = $connection3->query("UPDATE users SET card='$card',nameCard='$candName',date='$datePayment' WHERE users.email='$emails'");
-        if ($data3 == false) {
+        $data_payment = $connection_payment->query("UPDATE users SET card='$card_payment',nameCard='$candName_payment',date='$datePayment' WHERE users.email='$email_payment'");
+       // $data2_payment = $connection_payment->query("UPDATE users SET token = '' WHERE users.email='$email_payment'");
+        if ($data_payment == false) {
            echo "Cannot is DATABASE";
         }
         else{
-        header('location:checkout'.$tokens.'.php');
+        header('location:checkout'.$token_payment.'.php');
+        $data2_payment = $connection_payment->query("UPDATE users SET token = '' WHERE users.email='$email_payment'");
         }
 	}	                 
 ?>
@@ -192,7 +184,7 @@
 
                     <div class="form-group">
                         <label>รหัสการรักษาความปลอดภัย</label>
-                        <input type="text" data-name="securityCode" class="form-control" placeholder="รหัสหลังบัตร" />
+                        <input type="password" data-name="securityCode" class="form-control" placeholder="รหัสหลังบัตร" />
                     </div>
 
 
