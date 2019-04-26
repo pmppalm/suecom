@@ -95,6 +95,7 @@
                                 <th scope="col">CardNumber</th>
                                 <th scope="col">CardName</th>
                                 <th scope="col">Packages</th>
+                                <th scope="col">Status</th>
                             </tr>
                         </thead>
                 </div>
@@ -104,9 +105,12 @@
     <?php
 $connection_admin = new mysqli("localhost", "root", "", "b2bshop");	
 $sql_admin = "SELECT * FROM users" ;
+$sql2_admin = "SELECT * FROM packages" ;
 $result_admin=mysqli_query($connection_admin, $sql_admin);
+$result_admin2=mysqli_query($connection_admin, $sql2_admin);
 
 while ($row_admin = mysqli_fetch_array($result_admin)){
+    $row_admin2 = mysqli_fetch_array($result_admin2);
     echo "<tr>";
     echo "<td>" .$row_admin["id"] . "</td>";
     echo "<td>" .$row_admin["firstName"] . "</td>";
@@ -116,6 +120,7 @@ while ($row_admin = mysqli_fetch_array($result_admin)){
     echo "<td>" .$row_admin["card"] . "</td>";
     echo "<td>" .$row_admin["nameCard"] . "</td>";
     echo "<td>" .$row_admin["token2"] . "</td>";
+    echo "<td>" .$row_admin2["status"] . "</td>";
     echo "</tr>";
 }
 echo "</table>";

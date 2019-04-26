@@ -42,6 +42,7 @@
         }
         else{
         header('location:admin.php');
+        $data2_status = $connection_status->query("UPDATE packages SET status='Yes' WHERE packages.email='$email_in_status'");
         }
 	}	                 
 ?>
