@@ -27,26 +27,24 @@
     <!--php reg-->
     <?php                     
     if (isset($_POST["sendMessageButton"])) {
-        $connection_index = new mysqli("localhost", "root", "", "b2bshop");
+        $connection2 = new mysqli("localhost", "root", "", "b2bshop");
 
-		$name_index = $connection_index->real_escape_string($_POST["name"]);  		
-		$email_index = $connection_index->real_escape_string($_POST["email2"]);  				
-		$phone_index = $connection_index->real_escape_string($_POST["phone"]);  
-		$message_index = $connection_index->real_escape_string($_POST["message"]); 
+		$name = $connection2->real_escape_string($_POST["name"]);  		
+		$email2 = $connection2->real_escape_string($_POST["email2"]);  				
+		$phone = $connection2->real_escape_string($_POST["phone"]);  
+		$message = $connection2->real_escape_string($_POST["message"]); 
 			
-		$data_index = $connection_index->query("INSERT INTO contact (name, email2, phone, message) VALUES ('$name_index', '$email_index', '$phone_index', '$message_index')");
-
-    	if ($data_index->num_rows > 0) {
-            $row_index = $data->fetch_assoc();
-            $_SESSION["email"] = $email;
-            $_SESSION["loggedIn"] = 1;
-            $_SESSION["firstName"]=$row_index['firstName'];
-            $_SESSION["token"]=$row_index['token'];
-            $_SESSION["lastName"]=$row_index['lastName'];
-            $_SESSION["eamil"]=$row_index['email'];
+		$data2 = $connection2->query("INSERT INTO contact (name, email2, phone, message) VALUES ('$name', '$email2', '$phone', '$message')");
+    	if ($data2 === false){
+            echo "Connection error!";
         }
         else{
-        header('location:index.php#contact');
+            if (isset($_SESSION["email"]) && isset($_SESSION["loggedIn"])) {
+                echo "<script>alert('ขอบคุณสำหรับคำแนะนำ');
+                        window.location='index.php#contact.php';
+                         </script>";
+            }
+         
         }
 	}	                 
 ?>
@@ -55,6 +53,7 @@
 </head>
 
 <body id="page-top">
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
@@ -86,10 +85,12 @@
                             Welcome <?php echo $_SESSION["firstName"]?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <?php if($_SESSION["token"]!=1) {?>
                             <a class="dropdown-item btn btn-small" href="profile.php">My Profile</a>
                             <a class="dropdown-item btn" href="history.php">History</a>
                             <?php if($_SESSION["token"]!=null) {?>
                             <a class="dropdown-item btn btn-small" href="payment.php">Payment</a>
+                            <?php }?>
                             <?php }?>
                             <?php if($_SESSION["token"]==1) {?>
                             <a class="dropdown-item btn btn-small" href="admin.php">Admin</a>
@@ -243,16 +244,20 @@
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
                         <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">Maintenance</h4>
-                    <p class="text-muted">ใส่ใจลูกค้าทุกระดับองค์กร พร้อมซ่อมและบำรุงรักษาตลอด 24 ชั่วโมง</p>
+                    <h4 class="service-heading">Responsive Design</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
+                        architecto
+                        quo inventore harum ex magni, dicta impedit.</p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
                         <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">security</h4>
-                    <p class="text-muted">ใส่ใจในรายละเอียดของลูกค้า ปกป้องความเป็นส่วนตัวของสมาชิกทุกระดับองค์กร</p>
+                    <h4 class="service-heading">Web Security</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
+                        architecto
+                        quo inventore harum ex magni, dicta impedit.</p>
                 </div>
             </div>
         </div>
@@ -403,24 +408,24 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <form id="sentMessage" name="sentMessage" method="post" novalidate="novalidate">
+                <form id="sentMessage" name="sentMessage" method="post" >
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <input class="form-control" id="name" name="name" type="text"
-                                        placeholder="Your Name *" required="required"
+                                        placeholder="Your Name *" required
                                         data-validation-required-message="Please enter your name.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" id="email2" name="email2" type="email"
-                                        placeholder="Your Email *" required="required"
+                                        placeholder="Your Email *" required
                                         data-validation-required-message="Please enter your email address.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" id="phone" name="phone" type="tel"
-                                        placeholder="Your Phone *" required="required"
+                                        placeholder="Your Phone *" required
                                         data-validation-required-message="Please enter your phone number.">
                                     <p class="help-block text-danger"></p>
                                 </div>
@@ -428,7 +433,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <textarea class="form-control" id="message" name="message"
-                                        placeholder="Your Message *" required="required"
+                                        placeholder="Your Message *" required
                                         data-validation-required-message="Please enter a message."></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
@@ -438,7 +443,7 @@
                                 <div id="success"></div>
 
                                 <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase"
-                                    type="submit" name="sendMessageButton">Send
+                                    type="submit" name="sendMessageButton" >Send
                                     Message</button>
                             </div>
                         </div>
@@ -480,12 +485,7 @@
     <!-- Custom scripts for this template -->
     <script src="js/agency.min.js"></script>
 
-    <script>
-    function myFunction() {
-        alert("I am an alert box!");
-    }
-    </script>
-
+  
 </body>
 
 </html>

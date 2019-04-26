@@ -79,7 +79,8 @@
             </div>
         </div>
     </nav>
-
+    <section id="thankyou">
+    <center><h1 style="color: #ffd633">MEMBERS</h1></center>
     <div class="container">
         <form class="checkout-form">
             <center>

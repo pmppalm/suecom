@@ -96,6 +96,7 @@
         </div>
     </nav>
     <section id="thankyou">
+    
         <div class="container">
             <form id="checkout-form" class="checkout-form" method="POST">
                 <div class="col-lg-12 text-center">
@@ -103,8 +104,25 @@
                     <div class="form-group"><br><br>
                             <h1 class="intro-heading text-uppercase text-muted">CHEANG PACKAGES</h1>
                             <div class="form-group">
-                                <input type="email" name="EmailUser" class="form-control" placeholder="EmailUser" /><br>
-                                <input type="text" name="tokenIn" class="form-control" placeholder="Packages" />
+                                <input type="email" name="EmailUser" class="form-control" placeholder="EmailUser" required><br>
+                                <div class="form-group">
+                
+                        <div class="row">
+                            <div class="col">
+                                <select class="form-control"  name="tokenIn" required>
+                                    <option value="">Packet </option>
+                                    <option value="799">799 บาท/เดือน - ความเร็วดาวน์โหลดสูงสุด 50/20 Mbps</option>
+                                    <option value="999">999 บาท/เดือน - ความเร็วดาวน์โหลดสูงสุด 100/50 Mbps</option>
+                                    <option value="1499">1,499 บาท/เดือน - ความเร็วดาวน์โหลดสูงสุด 200/100 Mbps</option>
+                                    <option value="1999">1,999 บาท/เดือน - ความเร็วดาวน์โหลดสูงสุด 300/200 Mbps</option>
+                                    <option value="2399">2,399 บาท/เดือน - ความเร็วดาวน์โหลดสูงสุด 500/300 Mbps</option>
+                                    <option value="2999">2,999 บาท/เดือน - ความเร็วดาวน์โหลดสูงสุด 1000/500 Mbps</option>
+                                
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                             </div>
                         </div>
                     </div>
