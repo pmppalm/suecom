@@ -42,16 +42,16 @@
     <!--php reg-->
     <?php                     
     if (isset($_POST["register"])) {
-        $connection = new mysqli("localhost", "root", "", "b2bshop");
+        $connection_registration = new mysqli("localhost", "root", "", "b2bshop");
 
-		$firstName = $connection->real_escape_string($_POST["firstName"]);  		
-		$lastName = $connection->real_escape_string($_POST["lastName"]);  				
-		$email = $connection->real_escape_string($_POST["email"]);  
-		$password = $connection->real_escape_string($_POST["password"]); 
+		$firstName_registration = $connection_registration->real_escape_string($_POST["firstName"]);  		
+		$lastName_registration = $connection_registration->real_escape_string($_POST["lastName"]);  				
+		$email_registration = $connection_registration->real_escape_string($_POST["email"]);  
+		$password_registration = $connection_registration->real_escape_string($_POST["password"]); 
 			
-		$data = $connection->query("INSERT INTO users (firstName, lastName, email, password) VALUES ('$firstName', '$lastName', '$email', '$password')");
+		$data_registration = $connection_registration->query("INSERT INTO users (firstName, lastName, email, password) VALUES ('$firstName_registration', '$lastName_registration', '$email_registration', '$password_registration')");
 
-    	if ($data === false)
+    	if ($data_registration === false)
         	echo "Connection error!";
         else
       echo "<h2>สมัครสมาชิกสำเร็จคุณสามารถเข้าสู่ระบบได้ที่นี่</h2>";

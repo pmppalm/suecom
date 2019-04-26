@@ -27,23 +27,23 @@
     <!--php reg-->
     <?php                     
     if (isset($_POST["sendMessageButton"])) {
-        $connection2 = new mysqli("localhost", "root", "", "b2bshop");
+        $connection_index = new mysqli("localhost", "root", "", "b2bshop");
 
-		$name = $connection2->real_escape_string($_POST["name"]);  		
-		$email2 = $connection2->real_escape_string($_POST["email2"]);  				
-		$phone = $connection2->real_escape_string($_POST["phone"]);  
-		$message = $connection2->real_escape_string($_POST["message"]); 
+		$name_index = $connection_index->real_escape_string($_POST["name"]);  		
+		$email_index = $connection_index->real_escape_string($_POST["email2"]);  				
+		$phone_index = $connection_index->real_escape_string($_POST["phone"]);  
+		$message_index = $connection_index->real_escape_string($_POST["message"]); 
 			
-		$data2 = $connection2->query("INSERT INTO contact (name, email2, phone, message) VALUES ('$name', '$email2', '$phone', '$message')");
+		$data_index = $connection_index->query("INSERT INTO contact (name, email2, phone, message) VALUES ('$name_index', '$email_index', '$phone_index', '$message_index')");
 
-    	if ($data->num_rows > 0) {
-            $row = $data->fetch_assoc();
+    	if ($data_index->num_rows > 0) {
+            $row_index = $data->fetch_assoc();
             $_SESSION["email"] = $email;
             $_SESSION["loggedIn"] = 1;
-            $_SESSION["firstName"]=$row['firstName'];
-            $_SESSION["token"]=$row['token'];
-            $_SESSION["lastName"]=$row['lastName'];
-            $_SESSION["eamil"]=$row['email'];
+            $_SESSION["firstName"]=$row_index['firstName'];
+            $_SESSION["token"]=$row_index['token'];
+            $_SESSION["lastName"]=$row_index['lastName'];
+            $_SESSION["eamil"]=$row_index['email'];
         }
         else{
         header('location:index.php#contact');

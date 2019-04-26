@@ -27,17 +27,17 @@
     <!--php reg-->
     <?php                     
     if (isset($_POST["sendPackhages"])) {
-        $connection3 = new mysqli("localhost", "root", "", "b2bshop");
+        $connection_form = new mysqli("localhost", "root", "", "b2bshop");
 
-		$firstName2 = $connection3->real_escape_string($_POST["firstName2"]);  		
-		$lastName2 = $connection3->real_escape_string($_POST["lastName2"]);  				
-		$company = $connection3->real_escape_string($_POST["company"]);  
-        $email3 = $connection3->real_escape_string($_POST["email3"]);
-        $phone2 = $connection3->real_escape_string($_POST["phone2"]);  
+		$firstName_form = $connection_form->real_escape_string($_POST["firstName2"]);  		
+		$lastName_form = $connection_form->real_escape_string($_POST["lastName2"]);  				
+		$company_form = $connection_form->real_escape_string($_POST["company"]);  
+        $email_form = $connection_form->real_escape_string($_POST["email3"]);
+        $phone_form = $connection_form->real_escape_string($_POST["phone2"]);  
 			
-		$data3 = $connection3->query("INSERT INTO packages (firstName, lastName, company, email, phone) VALUES ('$firstName2', '$lastName2', '$company', '$email3','$phone2')");
+		$data_form = $connection_form->query("INSERT INTO packages (firstName, lastName, company, email, phone) VALUES ('$firstName_form', '$lastName_form', '$company_form', '$email_form','$phone_form')");
 
-    	if ($data3 === false){
+    	if ($data_form === false){
             header('login.php');
         }
         else{

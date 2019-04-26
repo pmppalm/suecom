@@ -49,33 +49,33 @@
 	}
 
 	if (isset($_POST["submit"])) {
-		$connection = new mysqli("localhost", "root", "", "b2bshop");
+		$connection_login = new mysqli("localhost", "root", "", "b2bshop");
 		
-        $email = $connection->real_escape_string($_POST["email"]);
-        $password = $connection->real_escape_string($_POST["password"]);
-        $data = $connection->query("SELECT * FROM users WHERE email='$email' AND password='$password'");
-        $sql = "SELECT * FROM users WHERE email = '".$email."' AND password = '".$password."'" ;
-        $sql2 ="SELECT * FROM users WHERE email = '".$email."'" ;
-        $sql3 ="SELECT * FROM users WHERE email = '".$password."'" ;
-        $sql4 = "SELECT token FROM users WHERE email = '".$email."' AND password = '".$password."'" ;
-        $result=$connection->query($sql);
-        $result2=$connection->query($sql2);
-        $result3=$connection->query($sql3);
-        $result4=$connection->query($sql4);
+        $email_login = $connection_login->real_escape_string($_POST["email"]);
+        $password_login = $connection_login->real_escape_string($_POST["password"]);
+        $data_login = $connection_login->query("SELECT * FROM users WHERE email='$email_login' AND password='$password_login'");
+        $sql_login = "SELECT * FROM users WHERE email = '".$email_login."' AND password = '".$password_login."'" ;
+        $sql2_login ="SELECT * FROM users WHERE email = '".$email_login."'" ;
+        $sql3_login ="SELECT * FROM users WHERE email = '".$password_login."'" ;
+        $sql4_login = "SELECT token FROM users WHERE email = '".$email_login."' AND password = '".$password_login."'" ;
+        $result_login=$connection_login->query($sql_login);
+        $result2_login=$connection_login->query($sql2_login);
+        $result3_login=$connection_login->query($sql3_login);
+        $result4_login=$connection_login->query($sql4_login);
        
-		if ($data->num_rows > 0) {
-            $row = $data->fetch_assoc();
-            $_SESSION["email"] = $email;
+		if ($data_login->num_rows > 0) {
+            $row_login = $data_login->fetch_assoc();
+            $_SESSION["email"] = $email_login;
             $_SESSION["loggedIn"] = 1;
-            $_SESSION["firstName"]=$row['firstName'];
-            $_SESSION["token"]=$row['token'];
-            $_SESSION["lastName"]=$row['lastName'];
-            $_SESSION["email"]=$row['email'];
+            $_SESSION["firstName"]=$row_login['firstName'];
+            $_SESSION["token"]=$row_login['token'];
+            $_SESSION["lastName"]=$row_login['lastName'];
+            $_SESSION["email"]=$row_login['email'];
          
             if(!empty($_POST["remember"])){
-                setcookie ("member_login",$email,time()+ (10 * 365 * 24 * 60 * 60));  
-                setcookie ("password",$password,time()+ (10 * 365 * 24 * 60 * 60));
-                $_SESSION["email"] = $email;
+                setcookie ("member_login",$email_login,time()+ (10 * 365 * 24 * 60 * 60));  
+                setcookie ("password",$password_login,time()+ (10 * 365 * 24 * 60 * 60));
+                $_SESSION["email"] = $email_login;
             }
             else{
                 if(isset($_COOKIE["member_login"]))   
