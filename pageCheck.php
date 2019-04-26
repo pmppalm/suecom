@@ -1,5 +1,5 @@
 <?php
-	session_start();
+    session_start();
 	if (!isset($_SESSION["email"]) || !isset($_SESSION["loggedIn"])) {
 			header("Location: login.php");
 			exit();

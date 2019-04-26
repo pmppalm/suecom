@@ -33,9 +33,10 @@
 		$lastName_form = $connection_form->real_escape_string($_POST["lastName2"]);  				
 		$company_form = $connection_form->real_escape_string($_POST["company"]);  
         $email_form = $connection_form->real_escape_string($_POST["email3"]);
-        $phone_form = $connection_form->real_escape_string($_POST["phone2"]);  
+        $phone_form = $connection_form->real_escape_string($_POST["phone2"]);
+        $status_form = "No";
 			
-		$data_form = $connection_form->query("INSERT INTO packages (firstName, lastName, company, email, phone) VALUES ('$firstName_form', '$lastName_form', '$company_form', '$email_form','$phone_form')");
+		$data_form = $connection_form->query("INSERT INTO packages (firstName, lastName, company, email, phone,status) VALUES ('$firstName_form', '$lastName_form', '$company_form', '$email_form','$phone_form','$status_form')");
 
     	if ($data_form === false){
             header('login.php');

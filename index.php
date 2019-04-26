@@ -91,6 +91,9 @@
                             <?php if($_SESSION["token"]!=null) {?>
                             <a class="dropdown-item btn btn-small" href="payment.php">Payment</a>
                             <?php }?>
+                            <?php if($_SESSION["token"]==1) {?>
+                            <a class="dropdown-item btn btn-small" href="admin.php">Admin</a>
+                            <?php }?>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item btn btn-danger" href="logout.php">Logout</a>
                         </div>
@@ -240,20 +243,16 @@
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
                         <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">Responsive Design</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                        architecto
-                        quo inventore harum ex magni, dicta impedit.</p>
+                    <h4 class="service-heading">Maintenance</h4>
+                    <p class="text-muted">ใส่ใจลูกค้าทุกระดับองค์กร พร้อมซ่อมและบำรุงรักษาตลอด 24 ชั่วโมง</p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
                         <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">Web Security</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                        architecto
-                        quo inventore harum ex magni, dicta impedit.</p>
+                    <h4 class="service-heading">security</h4>
+                    <p class="text-muted">ใส่ใจในรายละเอียดของลูกค้า ปกป้องความเป็นส่วนตัวของสมาชิกทุกระดับองค์กร</p>
                 </div>
             </div>
         </div>

@@ -46,7 +46,7 @@
 	if (isset($_SESSION["email"]) && isset($_SESSION["loggedIn"])) {
 		header("Location: index.php");
 		exit();
-	}
+    }
 
 	if (isset($_POST["submit"])) {
 		$connection_login = new mysqli("localhost", "root", "", "b2bshop");
@@ -111,6 +111,9 @@
                 header("location:pack2999.php");
                 exit();
             }
+            else if($_SESSION["token"]==1){
+                header("Location:admin.php");
+            }
             else {header("location:index.php");
                     exit();
             }        
@@ -163,7 +166,7 @@
                     <div class="login_box_img">
                         <img class="img-fluid" src="img/logintest.jpg" alt="">
                         <div class="hover">
-                    
+
                             <h4>คุณเป็นสมาชิกกับเราแล้วหรือยัง ?</h4>
                             <p>สำหรับลูกค้าท่านใดที่ยังไม่ได้สมัครสมาชิกเพื่อเข้าใช้งาน BIB
                                 สามารถทำการสมัครสมาชิกได้ที่นี่</p>

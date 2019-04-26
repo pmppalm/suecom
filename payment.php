@@ -15,6 +15,14 @@
 
     <title>BIB | Payment</title>
 
+    <style>
+    .checkout-form {
+        max-width: 500px;
+        margin-left: 300px;
+        margin-top: 175px;
+    }
+    </style>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="vendors/linericon/style.css">
@@ -62,8 +70,7 @@
         $data2_payment = $connection_payment->query("UPDATE users SET token = '' WHERE users.email='$email_payment'");
         }
 	}	                 
-?>
-    <!--End php -->
+?>    <!--End php -->
 </head>
 
 <body id="page-top">
@@ -130,7 +137,6 @@
 
                 </div>
                 <div class="card-body">
-
                     <div class="form-group">
                         <label>หมายเลขบัตร</label>
                         <input type="text" data-name="cardNumber" name="cardNum" class="form-control"
