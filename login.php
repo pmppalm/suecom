@@ -44,8 +44,7 @@
 	session_start();
 
 	if (isset($_SESSION["email"]) && isset($_SESSION["loggedIn"])) {
-		header("Location: index.php");
-		exit();
+        header('Location:index.php');
     }
 
 	if (isset($_POST["submit"])) {
@@ -88,34 +87,33 @@
                 }  
             }  
             if($_SESSION["packet799"]==1){
-                header("location:pack799.php");
-                exit();
+                
+                 header('location:pack799.php');
             }
             else if($_SESSION["packet999"]==1){
-                header("location:pack999.php");
-                exit();
+               
+                 header('location:pack999.php');
             }
             else if($_SESSION["packet1499"]==1){
-                header("location:pack1499.php");
-                exit();
+                header('location:pack1499.php');
             }
             else if($_SESSION["packet1999"]==1){
-                header("location:pack1999.php");
-                exit();
+                header('location:pack1999.php');
             }
             else if($_SESSION["packet2399"]==1){
-                header("location:pack2399.php");
-                exit();
+                header('location:pack2399.php');
             }
             else if($_SESSION["packet2999"]==1){
-                header("location:pack2999.php");
-                exit();
+                header('location:pack799.php');
+              
             }
             else if($_SESSION["token"]==1){
-                header("Location:admin.php");
+                header('location:admin.php');
+                
             }
-            else {header("location:index.php");
-                    exit();
+            else { 
+                header('location:index.php');
+                
             }        
             }
 		} else {

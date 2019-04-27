@@ -79,87 +79,84 @@
             </div>
         </div>
     </nav>
-
-    <div class="container">
-        <form class="checkout-form">
-            <center>
-                <div class="card-body">
-                    <table class="table table-hover">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">id</th>
-                                <th scope="col">firstName</th>
-                                <th scope="col">lastName</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Password</th>
-                                <th scope="col">CardNumber</th>
-                                <th scope="col">CardName</th>
-                                <th scope="col">Packages</th>
-                                <th scope="col">Status</th>
-                            </tr>
-                        </thead>
-                </div>
-    </div>
-    </center>
-    </div>
-    <?php
+    <section id="thankyou">
+        <center>
+            <h1 style="color: #ffd633">MEMBERS</h1>
+        </center>
+        <div class="container">
+            <form class="checkout-form">
+                <center>
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">firstName</th>
+                                    <th scope="col">lastName</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Password</th>
+                                    <th scope="col">CardNumber</th>
+                                    <th scope="col">CardName</th>
+                                </tr>
+                            </thead>
+                    </div>
+        </div>
+        </center>
+        </div>
+        <?php
 $connection_admin = new mysqli("localhost", "root", "", "b2bshop");	
 $sql_admin = "SELECT * FROM users" ;
-$sql2_admin = "SELECT * FROM packages" ;
 $result_admin=mysqli_query($connection_admin, $sql_admin);
-$result_admin2=mysqli_query($connection_admin, $sql2_admin);
 
 while ($row_admin = mysqli_fetch_array($result_admin)){
-    $row_admin2 = mysqli_fetch_array($result_admin2);
+    if($row_admin["token"]!=1){
     echo "<tr>";
-    echo "<td>" .$row_admin["id"] . "</td>";
     echo "<td>" .$row_admin["firstName"] . "</td>";
     echo "<td>" .$row_admin["lastName"] . "</td>";
     echo "<td>" .$row_admin["email"] . "</td>";
     echo "<td>" .$row_admin["password"] . "</td>";
     echo "<td>" .$row_admin["card"] . "</td>";
     echo "<td>" .$row_admin["nameCard"] . "</td>";
-    echo "<td>" .$row_admin["token2"] . "</td>";
-    echo "<td>" .$row_admin2["status"] . "</td>";
+
     echo "</tr>";
+}
 }
 echo "</table>";
 echo "</form>";
 mysqli_close($connection_admin);
 ?>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
 
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <span class="copyright">&copy; Business Internet Broadband 2019</span>
-                    </ul>
-                </div>
-                <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-inline social-buttons">
+                            <span class="copyright">&copy; Business Internet Broadband 2019</span>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
 
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Plugin JavaScript -->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Contact form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+        <!-- Contact form JavaScript -->
+        <script src="js/jqBootstrapValidation.js"></script>
+        <script src="js/contact_me.js"></script>
 
-    <!-- Custom scripts for this template -->
-    <script src="js/agency.min.js"></script>
+        <!-- Custom scripts for this template -->
+        <script src="js/agency.min.js"></script>
 
 </body>
 

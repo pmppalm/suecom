@@ -54,8 +54,9 @@
     	if ($data_registration === false)
         	echo "Connection error!";
         else
-      echo "<h2>สมัครสมาชิกสำเร็จคุณสามารถเข้าสู่ระบบได้ที่นี่</h2>";
-        header('location:login.php');
+        echo "<script>alert('สมัครสมาชิกสำเร็จ สามารถเข้าสู่ระบบได้');
+        window.location='login.php';
+         </script>";
 	}	                 
 ?>
     <!--End php -->
@@ -63,9 +64,10 @@
 
 <body id="page-top">
    <!-- Navigation -->
-   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#1f1d1d">
+   <!-- Navigation -->
+   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav"style="background-color:#1f1d1d">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="index.php">BIBcommerce</a>
+            <a class="navbar-brand js-scroll-trigger" href="index.php#page-top">BIBcommerce</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -74,9 +76,6 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
-                    <!--<li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
-          </li>-->
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="index.php#portfolio">Packages</a>
                     </li>
@@ -89,6 +88,31 @@
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="index.php#contact">Contact</a>
                     </li>
+                    <?php if(isset($_SESSION["email"])) {?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Welcome <?php echo $_SESSION["firstName"]?>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <?php if($_SESSION["token"]!=1) {?>
+                            <a class="dropdown-item btn btn-small" href="profile.php">My Profile</a>
+                            <?php if($_SESSION["token"]!=null) {?>
+                            <a class="dropdown-item btn btn-small" href="payment.php">Payment</a>
+                            <?php }?>
+                            <?php }?>
+                            <?php if($_SESSION["token"]==1) {?>
+                            <a class="dropdown-item btn btn-small" href="admin.php">Admin</a>
+                            <?php }?>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item btn btn-danger" href="logout.php">Logout</a>
+                        </div>
+                    </li>
+                    <?php }else {?>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="login.php">Log in</a>
+                    </li>
+                    <?php }?>
                 </ul>
             </div>
         </div>
@@ -110,23 +134,22 @@
                 <div class="col-lg-6">
                     <div class="login_form_inner reg_form">
                         <h3>Create an Account</h3>
-                        <form class="row login_form" action="registration.php" method="post" id="contactForm"
-                            novalidate="novalidate">
+                        <form class="row login_form" action="registration.php" method="post" id="contactForm">
                             <div class="col-md-12 form-group">
                                 <input type="text" class="form-control" id="firstname" name="firstName"
-                                    placeholder="First name">
+                                    placeholder="First name" required>
                             </div>
                             <div class="col-md-12 form-group">
                                 <input type="text" class="form-control" id="lastname" name="lastName"
-                                    placeholder="Last name">
+                                    placeholder="Last name" required>
                             </div>
                             <div class="col-md-12 form-group">
                                 <input type="email" class="form-control" id="email" name="email"
-                                    placeholder="Email Address">
+                                    placeholder="Email Address" required>
                             </div>
                             <div class="col-md-12 form-group">
                                 <input type="password" class="form-control" id="password" name="password"
-                                    placeholder="Password">
+                                    placeholder="Password" required>
                             </div>
                             <div class="col-md-12 form-group">
                                 <div class="creat_account">
@@ -136,8 +159,8 @@
                                 </div>
                             </div>
                             <div class="col-md-12 form-group">
-                                <button type="submit" value="Register" class="main_btn"
-                                    name="register">Register</button>
+                            <input type="submit" value="Register" class="main_btn"
+                                    name="register"  >
                             </div>
                         </form>
                     </div>

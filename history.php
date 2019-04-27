@@ -36,7 +36,7 @@
 
 <body id="page-top">
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#1f1d1d">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav"style="background-color:#1f1d1d">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="index.php#page-top">BIBcommerce</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -66,10 +66,15 @@
                             Welcome <?php echo $_SESSION["firstName"]?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <?php if($_SESSION["token"]!=1) {?>
                             <a class="dropdown-item btn btn-small" href="profile.php">My Profile</a>
                             <a class="dropdown-item btn" href="history.php">History</a>
                             <?php if($_SESSION["token"]!=null) {?>
                             <a class="dropdown-item btn btn-small" href="payment.php">Payment</a>
+                            <?php }?>
+                            <?php }?>
+                            <?php if($_SESSION["token"]==1) {?>
+                            <a class="dropdown-item btn btn-small" href="admin.php">Admin</a>
                             <?php }?>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item btn btn-danger" href="logout.php">Logout</a>
@@ -84,6 +89,7 @@
             </div>
         </div>
     </nav>
+    
     <div class="container">
         <form class="checkout-form">
             <center>
